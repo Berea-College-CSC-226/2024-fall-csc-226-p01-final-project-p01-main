@@ -5,9 +5,9 @@
 ❗️Exclamation Marks ❗️indicate action items; you should remove these emoji as you complete/update the items which 
   they accompany. (This means that your final README should have no ❗️in it!)
 
-❗️**Author(s)**: Your name(s) here
+❗️**Author(s)**: Eber Seco Lima
 
-❗️**Google Doc Link**: Your link here
+❗️**Google Doc Link**: https://github.com/Berea-College-CSC-226/p01-final-project-secolimae
 
 ---
 
@@ -20,11 +20,11 @@ helped you, AI tools you've used, and any other resources that are not solely yo
 
 ## Milestone 1: Setup, Planning, Design
 
-❗️**Title**: `What is the title of your project? Be creative! Replace this block of text.`
+**Title**: Greet and Beat: Face Recognition Music Player
 
-❗**Purpose**: `In a single sentence, describe WHAT your project will do. Replace this block of text.`
+**Purpose**: This project uses face recognition to detect known faces and automatically play music for each recognized known individual.
 
-❗️**Source Assignment(s)**: `List which original assignments you will base your project on? Replace this block of text.`
+**Source Assignment(s)**: [`How to Make Music Player in Python`](https://www.codesnail.com/how-to-make-music-player-in-python/) and [`Python Face Recognition Tutorial w/ Code Download`](https://www.youtube.com/watch?v=D5xqcGk6LEc)
 
 ❗️**CRC Card(s)**:
   - Create a CRC card for each class that your project will implement.
