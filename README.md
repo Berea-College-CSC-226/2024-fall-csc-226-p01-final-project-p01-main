@@ -20,11 +20,11 @@ helped you, AI tools you've used, and any other resources that are not solely yo
 
 ## Milestone 1: Setup, Planning, Design
 
-❗️**Title**: `What is the title of your project? Be creative! Replace this block of text.`
+❗️**Title**: `Space Shooter (A Game).`
 
-❗**Purpose**: `In a single sentence, describe WHAT your project will do. Replace this block of text.`
+❗**Purpose**: `In a single sentence, describe WHAT your project will do. It will be a game that has a  space shooter in the form of a 2D arcade game where players take control of a spacecraft, avoid asteroids, and destroy opposing ships. For handling animations and images, use the Pygame library..`
 
-❗️**Source Assignment(s)**: `List which original assignments you will base your project on? Replace this block of text.`
+❗️**Source Assignment(s)**: `List which original assignments you will base your project on? T11: The Legends of Tuna: Breath of Catnip.`
 
 ❗️**CRC Card(s)**:
   - Create a CRC card for each class that your project will implement.
@@ -34,7 +34,7 @@ helped you, AI tools you've used, and any other resources that are not solely yo
     README. You can do this by saving an image in the repository and linking to it. See the sample CRC card below - 
     and REPLACE it with your own:
   
-![Don't leave me in your README!](image/crc.png "Image of CRC card as an example. Upload your CRC card(s) in place of this one. ")
+![Don't leave me in your README!](image/Geez.png ), 
 
 ❗️**Branches**: This project will **require** effective use of git. 
 
@@ -43,7 +43,7 @@ branch) as they work. When you need to bring each others branches together, do s
 into your own, following the process we've discussed in previous assignments: 
 
 ```
-    Branch 1 name: _____________
+    Branch 1 name:ngogj
     Branch 2 name: _____________
 ```
 ---
