@@ -26,7 +26,7 @@ helped you, AI tools you've used, and any other resources that are not solely yo
 
 **Source Assignment(s)**: [`How to Make Music Player in Python`](https://www.codesnail.com/how-to-make-music-player-in-python/) and [`Python Face Recognition Tutorial w/ Code Download`](https://www.youtube.com/watch?v=D5xqcGk6LEc)
 
-❗️**CRC Card(s)**:
+**CRC Card(s)**:
   - Create a CRC card for each class that your project will implement.
   - See this link for a sample CRC card and a template to use for your own cards (you will have to make a copy to edit):
     [CRC Card Example](https://docs.google.com/document/d/1JE_3Qmytk_JGztRqkPXWACJwciPH61VCx3idIlBCVFY/edit?usp=sharing)
@@ -34,17 +34,20 @@ helped you, AI tools you've used, and any other resources that are not solely yo
     README. You can do this by saving an image in the repository and linking to it. See the sample CRC card below - 
     and REPLACE it with your own:
   
-![Don't leave me in your README!](image/crc.png "Image of CRC card as an example. Upload your CRC card(s) in place of this one. ")
+![1st Class](image/face.jpg "FaceRecognition Class")
 
-❗️**Branches**: This project will **require** effective use of git. 
+![2nd Class](image/music.jpg "Music Class")
+
+![3rd Class](image/facemusic.jpg "FaceMusic Class")
+
+**Branches**: This project will **require** effective use of git. 
 
 Each partner should create a branch at the beginning of the project, and stay on this branch (or branches of their 
 branch) as they work. When you need to bring each others branches together, do so by merging each other's branches 
 into your own, following the process we've discussed in previous assignments: 
 
 ```
-    Branch 1 name: _____________
-    Branch 2 name: _____________
+    Branch 1 name: secolimae
 ```
 ---
 
