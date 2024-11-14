@@ -20,13 +20,11 @@ helped you, AI tools you've used, and any other resources that are not solely yo
 
 ## Milestone 1: Setup, Planning, Design
 
-❗️**Title**: `Library Catalog`
+️**Title**: `Library Catalog`
 
-❗**Purpose**: `Build a library catalog where user can add books, search by author or genre, and track status (read/unread/reading).`
+️**Source Assignment(s)**: `I am basing this project off of T12`
 
-❗️**Source Assignment(s)**: `I am basing this project off of T12`
-
-❗️**CRC Card(s)**:
+️**CRC Card(s)**:
   - Create a CRC card for each class that your project will implement.
   - See this link for a sample CRC card and a template to use for your own cards (you will have to make a copy to edit):
     [CRC Card Example](https://docs.google.com/document/d/1JE_3Qmytk_JGztRqkPXWACJwciPH61VCx3idIlBCVFY/edit?usp=sharing)
@@ -34,7 +32,7 @@ helped you, AI tools you've used, and any other resources that are not solely yo
     README. You can do this by saving an image in the repository and linking to it. See the sample CRC card below - 
     and REPLACE it with your own:
   
-![Don't leave me in your README!](image/crc.png "Image of CRC card as an example. Upload your CRC card(s) in place of this one. ")
+![Don't leave me in your README!](LibraryCatalog_CRC_Card.png "Image of my CRC card.")
 
 ❗️**Branches**: This project will **require** effective use of git. 
 
