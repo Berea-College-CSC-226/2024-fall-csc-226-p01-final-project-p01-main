@@ -32,7 +32,11 @@ helped you, AI tools you've used, and any other resources that are not solely yo
     README. You can do this by saving an image in the repository and linking to it. See the sample CRC card below - 
     and REPLACE it with your own:
   
-![Don't leave me in your README!](LibraryCatalog_CRC_Card.png "Image of my CRC card.")
+![Don't leave me in your README!](LibraryCatalog_CRC_Card-c.png "LibraryCatalog")
+![Don't leave me in your README!](LibraryApp_CRC_Card-a.png "LibraryApp")
+![Don't leave me in your README!](Book_CRC_Card-b.png "Book")
+
+
 
 ❗️**Branches**: This project will **require** effective use of git. 
 
