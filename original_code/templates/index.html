@@ -3,8 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
+
+    <!-- Simple Styling Here-->
+    <style>
+        table td {
+            border: solid black 1px;
+            padding: 5px;
+            margin: 0;
+
+        }
+
+        table td:hover {
+            background-color: blue;
+            color: red;
+        }
+    </style>
+
 </head>
 <body>
-  <a href="http://127.0.0.1:5000/add"> Add Student</a>
+    <table>
+        <!-- Create a table with students Information-->
+        <!--This will likely be changed later on-->
+        {% for student in students %}
+            <tr>
+                <td> name: {{ student[0] }} </td>
+                <td> pin: {{ student[1] }}  </td>
+                <td> id: {{ student[2] }} </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="http://127.0.0.1:5000/add"> Add Student</a>
 </body>
 </html>
