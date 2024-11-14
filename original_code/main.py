@@ -62,13 +62,32 @@ def create_student(name, pin):
 
     return user
 
+def students_list():
+    con = sqlite3.connect("registration.db")
+    cursor = con.cursor()
+    sql_query = "SELECT * FROM Users ORDER BY id;"
+    cursor.execute(sql_query)
+    users = cursor.fetchall()
+    con.close()
+    return users
+
+def delete_all():
+    con = sqlite3.connect("registration.db")
+    cursor = con.cursor()
+    sql_query = "DELETE FROM Users"
+    cursor.execute(sql_query)
+    con.commit()
+    con.close()
+
 
 u1 = create_student("Besher", "1223")
 
 app = Flask(__name__, template_folder='templates')
+students = students_list()
+
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', students=students)
 
 
 @app.route('/add', methods=['GET', 'POST'])
