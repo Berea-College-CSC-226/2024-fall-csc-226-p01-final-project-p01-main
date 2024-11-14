@@ -31,7 +31,7 @@ helped you, AI tools you've used, and any other resources that are not solely yo
     README. You can do this by saving an image in the repository and linking to it. See the sample CRC card below - 
     and REPLACE it with your own:
   
-[CRC Card](image/mycrc.png)
+![CRC Card](image/mycrc.png)
 
 **Branches**: This project will **require** effective use of git. 
 
