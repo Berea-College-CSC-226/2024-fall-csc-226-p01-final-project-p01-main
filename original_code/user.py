@@ -57,7 +57,7 @@ class User:
 
     def retrieve_course(self):
         """
-        Get courses form the data bases
+        Get courses form the databases
         :return:
         """
         # Implementation is to be changed
@@ -98,7 +98,7 @@ def create_student(name, pin):
     Create a student in the database and returns as a User object
     :param name: name of the student
     :param pin: pin of the student
-    :return:
+    :return: A User object
     """
     # Create connection to the database
     con = sqlite3.connect("registration.db")
@@ -142,3 +142,7 @@ def delete_all():
     con.commit()
     con.close()
 
+
+if __name__ == "__main__":
+    pass
+    #just in case we need to run anything through this file for development purposes
