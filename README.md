@@ -57,7 +57,7 @@ Reflect on what you’ve done so far. How’s it going? Are you feeling behind/a
 What has surprised you so far? Describe your general feelings. Be honest with yourself; this section is for you, not me.
 
 ```
-    **Replace this text with your reflection
+    **I feel ahead because i know what i want to do and have a set plan on what i want to do. Its going to be a long hard project but if i work on it dillgently then i feel like i could get it done on time but the code is fine becausing its based off an assignment we already did which has to do with pygame.
 ```
 
 ---
