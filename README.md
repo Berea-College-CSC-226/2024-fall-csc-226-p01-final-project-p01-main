@@ -25,6 +25,7 @@ helped you, AI tools you've used, and any other resources that are not solely yo
   **Purpose**: my game is going to have asteriods/balls coming down from the screen and the rocket(main piece) is going to have to dodge them, if not you die.
 
 ️**Source Assignment(s)**: T11: The Legend of Tuna: Breath of Catnip
+                             T12: Events and GUIs
 
 ️**CRC Card(s)**:
   - Create a CRC card for each class that your project will implement.
@@ -56,7 +57,11 @@ Reflect on what you’ve done so far. How’s it going? Are you feeling behind/a
 What has surprised you so far? Describe your general feelings. Be honest with yourself; this section is for you, not me.
 
 ```
-    **Replace this text with your reflection
+    I feel like I am behind, I was waiting on feedback from milestone 1, and after getting the feedback, I realized that I needed to basically change my outline. The Dodgeball class is suppose to be the GUI class. And most of the methods inside the previous Dodgeball class are suppose
+    to be inside the GUI class. And I thought I wouldn't need to create a player class, I thought that would be covered inside either the GUI class or the Dodgeball class. But now I feel a little lost on with methods are suppose to be in which class and what their attributes are going to be.
+    I am worried that, I am going to get more lost as I continue to work on this project. Even after asking for help, I feel like once I go back and work on the project by my self, I would get lost too often which sets me back a lot. When I get lost, I tend to shut down or I take a break which 
+    can sometimes go longer than expected. I am also scared that when I go to the TAs or the prof for help, I won't be able to explain what problems I am having in a way that I want them to understand. When I get stuck on a problem on something I don't really understand myself, I don't know how 
+    to ask proper help. But hopefully I make a lot of progress during Thanksgiving break. 
 ```
 
 ---
