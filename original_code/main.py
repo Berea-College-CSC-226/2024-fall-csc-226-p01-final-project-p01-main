@@ -1,3 +1,18 @@
+####################################################
+# Name: Besher Kitaz
+# username: kitazb
+#
+# CSC: 226
+#
+####################################################
+#
+#
+# Inspired by: https://docs.google.com/document/d/1ww0ajH0ahH8wBKCp3uY6fe_THjE8BJZ_3iYgnOO8ovg/edit?tab=t.0#heading=h.qg98s23ap4mh
+#
+#
+####################################################
+
+
 from flask import Flask, render_template, request
 from user import *
 app = Flask(__name__, template_folder='templates')
