@@ -1,13 +1,18 @@
-#import pygame
+import pygame
 import random
 import tkinter as tk
 
 class GUI:
-    def __init__(self):
+    def __init__(self, width, height):
         """
         Initializes the GUI, creates the window for the game
         """
+        self.screen = pygame.display.set_mode((width, height))
+        pygame.display.set_caption("StarFLARE Dodge")  # Set window title
+        self.width = width
+        self.height = height
 
+        self.screen.fill((0, 0, 0)) #sets the screen color to black
 
     def button(self):
         """
@@ -21,19 +26,21 @@ class Game:
         Initializes the game, which also includes the two other classes
         """
 
-        # self.root = tk.Tk()
-        # self.root.minsize(width=500, height=300)
-        # self.root.maxsize(width=500, height=300)
-        # self.root.title(windowtext)
-        #
-        # self.width = 600
-        # self.height = 600
-        # self.rocket_width = 200
-        # self.rocket_height = 200
-        # self.falling_balls_radius = 10
-        # self.PURPLE = (128, 0, 128)
-        # self.BROWN = (165, 42, 42)
-        # self.GREEN = (0, 255, 0)
+        self.root = tk.Tk()
+        self.root.minsize(width=500, height=300)
+        self.root.maxsize(width=500, height=300)
+        self.root.title(windowtext)
+
+        self.width = 600
+        self.height = 600
+        self.rocket_width = 200
+        self.rocket_height = 200
+        self.falling_balls_radius = 10
+        self.PURPLE = (128, 0, 128)
+        self.BROWN = (165, 42, 42)
+        self.GREEN = (0, 255, 0)
+
+
 
     def spawn_ball(self):
         """
@@ -42,12 +49,6 @@ class Game:
 
 
 
-
-
-    # def move_rocket(self):
-    #     """
-    #     Moves the rocket based on the user's input, only the left and right arrows on the keyboard work.
-    #     """
 
 
     def check_collision(self):
@@ -95,6 +96,7 @@ class player:
         """
         Initializes the player's (rocket)
         """
+
 
 
     def left_right(self):
@@ -151,9 +153,7 @@ def main():
     """
     creates the game and keeps it running
     """
-    myGUI = MyTkinterApp("StarFLARE Dodge")  # Create a new MyTkinterApp object
 
-    myGUI.root.mainloop()
 
 
 
