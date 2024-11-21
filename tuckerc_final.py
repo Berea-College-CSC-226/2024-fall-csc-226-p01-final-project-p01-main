@@ -2,7 +2,7 @@
 # Author: Caleb Tucker
 # Username: tuckerc
 #
-# T12: Events and GUIs
+# P01: Final Project
 #
 # Purpose: To create an interactive calendar
 #######################################################################
