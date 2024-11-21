@@ -12,9 +12,6 @@
 # Acknowledgements: ?????
 #
 ####################################################################################
-
-#implement SQLite for database!!!!!
-
 import tkinter as tk
 import sqlite3
 

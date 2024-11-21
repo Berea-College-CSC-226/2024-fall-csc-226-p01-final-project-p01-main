@@ -57,7 +57,10 @@ Reflect on what you’ve done so far. How’s it going? Are you feeling behind/a
 What has surprised you so far? Describe your general feelings. Be honest with yourself; this section is for you, not me.
 
 ```
-    **Replace this text with your reflection
+    I am a bit lost and feeling behind but am looking at tutorials for sqlite and figuring out how to use it now. I am worried
+    about implementing it wrong or not having enough time to add all the features I want, but I am going to take this one step
+    at a time. I do have a vision of what I want to do from here so I am a bit more focused than first week. I imported sqlite
+    this week and looked into how to use it which is a great first step.
 ```
 
 ---
