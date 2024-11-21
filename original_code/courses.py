@@ -32,11 +32,11 @@ class Course:
 
 
     def retrieve_data(self):
+        print(self.key)
         """
         Retrieves the data from the database for the user
         :return: A Tuple of the user data from the record
         """
-        print(self.key, "In retrieve data")
         self.cursor.execute("SELECT * FROM Courses WHERE id = ?", (self.key,))
         self.data = self.cursor.fetchone() # Retrieves name, crn and id
         return self.data
@@ -72,15 +72,15 @@ def creat_courses_table():
 def course_list():
     """
     Returns a list of all students
-    :return: users: a list of all students
+    :return: course: a list of all students
     """
     con = sqlite3.connect("registration.db")
     cursor = con.cursor()
     sql_query = "SELECT * FROM Courses ORDER BY id;"
     cursor.execute(sql_query)
-    users = cursor.fetchall()
+    course = cursor.fetchall()
     con.close()
-    return users
+    return course
 
 
 def delete_all():
@@ -109,11 +109,9 @@ def create_course(name, crn):
     con.commit()
     cursor.execute("SELECT * FROM Courses ORDER BY id DESC LIMIT 1;")
     name, crn, id = cursor.fetchone()
-    print(id, "in create course")
     course = Course(id)
     con.commit()
     con.close()
     return course
 
-
-print(course_list())
+create_course("math", 12)
