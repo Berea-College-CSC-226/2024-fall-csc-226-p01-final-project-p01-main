@@ -15,90 +15,41 @@
 
 # import pygame
 
-import os
-from flask import Flask, request, redirect, url_for, render_template, send_from_directory
-from werkzeug.utils import secure_filename
+import web_application
+from xml.dom import minidom
 
-class Config:
+
+class ImageProcessor():
     """
-    Configuration for the Flask app.
+    A class to process the image.
     """
-    UPLOAD_FOLDER = 'uploads'
-    ALLOWED_EXTENSIONS = {'svg'}
-    DEBUG = True
+    def __init__(self, svg_content):
+        self.svg_content = svg_content 
+    def process_image(self):
+        paths = []
+        content = self.svg_content.lower()
+        # print(content)
 
-class SVGApp:
+        while '<path' in content:
+            path_start = content.find('<path')
+            path_end = content.find('>', path_start) + 1
+
+            path_element = content[path_start:path_end]
+            paths.append(path_element)
+
+            # Update content to remove the processed path
+            content = content[path_end:]
+
+        return paths
+
+
+def main():
     """
-    A class-based Flask application.
+    Main function to run the web application.
     """
-    def __init__(self):
-        self.app = Flask(__name__)
-        self.app.config.from_object(Config)
-        os.makedirs(self.app.config['UPLOAD_FOLDER'], exist_ok=True)
-        self.add_routes()
-
-    def allowed_file(self, filename):
-        """
-        Check if the file extension is allowed.
-        """
-        return '.' in filename and filename.rsplit('.', 1)[1].lower() in self.app.config['ALLOWED_EXTENSIONS']
-
-    def add_routes(self):
-        """
-        Define routes for the application.
-        """
-        self.app.add_url_rule('/', 'index', self.index)
-        self.app.add_url_rule('/upload', 'upload_file', self.upload_file, methods=['POST'])
-        self.app.add_url_rule('/uploads/<filename>', 'display_file', self.display_file)
-        self.app.add_url_rule('/files/<filename>', 'serve_file', self.serve_file)
-
-    def index(self):
-        """
-        Render the home page.
-        """
-        return render_template('index.html')
-
-    def upload_file(self):
-        """
-        Handle file upload.
-        """
-        if 'file' not in request.files:
-            return "No file part", 400
-        file = request.files['file']
-        if file.filename == '':
-            return "No selected file", 400
-        if file and self.allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file_path = os.path.join(self.app.config['UPLOAD_FOLDER'], filename)
-            file.save(file_path)
-            return redirect(url_for('display_file', filename=filename))
-        return "Invalid file type", 400
-
-    def display_file(self, filename):
-        """
-        Display the uploaded file.
-        """
-        return render_template('display.html', filename=filename)
-
-    def serve_file(self, filename):
-        """
-        Serve the file from the upload folder.
-        """
-        return send_from_directory(self.app.config['UPLOAD_FOLDER'], filename)
-
-    def run(self):
-        self.app.run()
-
-
-
-# class Process_image():
-#     """
-#     A class-based processing of the image to the <paths> tags .
-#     """
-
-
-
+    app = web_application.SVGApp()
+    # print(app.config['UPLOAD_FOLDER'])
+    app.run()
 
 if __name__ == '__main__':
-    app = SVGApp()
-    app.run()
+    main()
