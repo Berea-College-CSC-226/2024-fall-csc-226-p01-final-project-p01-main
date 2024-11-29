@@ -1,0 +1,26 @@
+
+roll system(range random)
+(fighting mech. similar to dnd)
+
+@ = its own .py file
+
+@start menu
+
+@game itself (running scenes, start menu, end screen)
+
+@scene# (classes/functions)
+
+    @dialogue boxes (any button press or click makes boxes go)[function or class] Then I can customize the dialogue boxes by printing
+
+    button options [function or class] similar to dialogue but selection has if, elif, and else statements
+    (these two may share a .py file or be in the game's file)
+
+win and lose condition leads to end screen
+
+@end screen
+
+
+img assets need to be pngs (in a folder called images)
+character assets (individual name imgs folder)
+backgrounds (bkg img folder)
+extras such a items or props (extras folder)
