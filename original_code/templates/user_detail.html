@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ context.student.name }} Details</title>
+</head>
+<body>
+    <h2>
+        Your Courses:
+    </h2>
+    <ul>
+        {% for course in context.courses %}
+        <li> {{ course }} </li>
+        {% endfor %}
+    </ul>
+
+    <div>
+        Register for Courses
+    </div>
+    <form action="" method="POST">
+        <input type="text" name="crn" placeholder="Course CRN">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
