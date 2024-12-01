@@ -36,8 +36,10 @@ class User:
         Retrieves the data from the database for the user
         :return: A Tuple of the user data from the record
         """
+        self.create_connection()
         self.cursor.execute("SELECT * FROM Users WHERE id = ?", (self.key,))
         self.data = self.cursor.fetchone() # Retrieves name, pin and id
+        self.close_connection()
         return self.data
 
 
@@ -73,6 +75,10 @@ class User:
         """
         self.con.close()
 
+    def create_connection(self):
+        self.con = sqlite3.connect("registration.db")
+        self.cur = self.con.cursor()
+
 
 def creat_users_table():
     """
@@ -81,8 +87,9 @@ def creat_users_table():
     """
     con = sqlite3.connect("registration.db")
     cursor = con.cursor()
+
     create_table_query = '''
-    CREATE TABLE Users (
+    CREATE TABLE IF NOT EXISTS Users (
         name CHAR NOT NULL,
         PIN INTEGER NOT NULL,
         id INTEGER PRIMARY KEY AUTOINCREMENT
@@ -144,5 +151,6 @@ def delete_all():
 
 
 if __name__ == "__main__":
-    pass
-    #just in case we need to run anything through this file for development purposes
+    create_student("Besher", 111)
+    create_student("Ahmad", 112)
+    create_student("Jamal", 113)

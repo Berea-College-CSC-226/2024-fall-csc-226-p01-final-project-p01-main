@@ -32,15 +32,16 @@ class Course:
 
 
     def retrieve_data(self):
-        print(self.key)
         """
         Retrieves the data from the database for the user
         :return: A Tuple of the user data from the record
         """
+        con = sqlite3.connect("registration.db")
+        self.cursor = con.cursor()
         self.cursor.execute("SELECT * FROM Courses WHERE id = ?", (self.key,))
         self.data = self.cursor.fetchone() # Retrieves name, crn and id
+        con.close()
         return self.data
-
 
     def close_connection(self):
         """
@@ -109,8 +110,20 @@ def create_course(name, crn):
     con.commit()
     cursor.execute("SELECT * FROM Courses ORDER BY id DESC LIMIT 1;")
     name, crn, id = cursor.fetchone()
+    print(id, "in Create_course")
     course = Course(id)
     con.commit()
+    con.close()
+    return course
+
+def retrieve_course_through_CRN(crn):
+    con = sqlite3.connect("registration.db")
+    cursor = con.cursor()
+
+    query = "SELECT id FROM Courses WHERE CRN = ?;"
+    cursor.execute(query, (crn,))
+    key = cursor.fetchone()
+    course = Course(key)
     con.close()
     return course
 

@@ -6,13 +6,6 @@
 
     <!-- Simple Styling Here-->
     <style>
-        table td {
-            border: solid black 1px;
-            padding: 5px;
-            margin: 0;
-
-        }
-
         table td:hover {
             background-color: blue;
             color: red;
@@ -26,12 +19,10 @@
         <!--This will likely be changed later on-->
         {% for student in students %}
             <tr>
-                <td> name: {{ student[0] }} </td>
-                <td> pin: {{ student[1] }}  </td>
-                <td> id: {{ student[2] }} </td>
+                <td> <a href="{{ url_for('user_detail', id=student[2]) }}"> name: {{ student[0] }} </a>  </td>
             </tr>
         {% endfor %}
+
     </table>
-    <a href="http://127.0.0.1:5000/add"> Add Student</a>
 </body>
 </html>
