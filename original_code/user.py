@@ -100,7 +100,7 @@ def creat_users_table():
     con.commit()
 
 
-def create_student(name, pin):
+def create_student():
     """
     Create a student in the database and returns as a User object
     :param name: name of the student
@@ -110,13 +110,16 @@ def create_student(name, pin):
     # Create connection to the database
     con = sqlite3.connect("registration.db")
     cursor = con.cursor()
+
     # Insert the data in the base and commit changes
     sql_query = "INSERT INTO Users (name, pin) VALUES (?, ?)"
     cursor.execute(sql_query, (name, pin))
     con.commit()
+
     # Retreive the data (the last inserted) to return as an object
     cursor.execute("SELECT * FROM Users ORDER BY id DESC LIMIT 1;")
     name, pin, id = cursor.fetchone()
+
     # Create an object with the data
     user = User(id)
     con.close()
@@ -125,8 +128,8 @@ def create_student(name, pin):
 
 def students_list():
     """
-    Returns a list of all students
-    :return: users: a list of all students
+    Gets a list of users from the database
+    :return: a list of users
     """
     con = sqlite3.connect("registration.db")
     cursor = con.cursor()
@@ -152,5 +155,6 @@ def delete_all():
 
 if __name__ == "__main__":
     create_student("Besher", 111)
-    create_student("Ahmad", 112)
-    create_student("Jamal", 113)
+    create_student("Joshua", 112)
+    create_student("Jose", 113)
+

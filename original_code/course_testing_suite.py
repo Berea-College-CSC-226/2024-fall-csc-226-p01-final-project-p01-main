@@ -3,15 +3,9 @@ from courses import *
 import sqlite3
 
 # Had to get some help from ChatGPT for the nest three lines
-# Clearing the database and ensure that we start tests on a fresh database
-if os.path.exists("registration.db"):
-    os.remove("registration.db")
-
-creat_courses_table()
 
 
 def test_create_course():
-    delete_all()
     course = create_course("Math 101", 12345)
     assert course.name == "Math 101"
     assert course.crn == 12345

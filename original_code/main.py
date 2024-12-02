@@ -28,6 +28,7 @@ def index():
     """
     return render_template('index.html', students=students)
 
+
 @app.route('/user_detail', methods=['GET', 'POST'])
 def user_detail():
     if request.method == 'GET':
@@ -44,11 +45,13 @@ def user_detail():
         }
         return render_template("user_detail.html", context=context)
 
+
     if request.method == 'POST':
         id = request.args.get('id')
         data = request.form.get('crn')
         print(id, data)
         return "Data Submitted!"
+
 
 @app.route('/add', methods=['GET', 'POST'])
 def add():
