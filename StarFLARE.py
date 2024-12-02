@@ -77,7 +77,7 @@ class Game:
         """
 
         for ball in self.balls:
-            if
+            if ball
 
 
     def draw_objects(self):
