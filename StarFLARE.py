@@ -180,7 +180,7 @@ class Dodgeball:
 
 def main():
     """
-    creates the game and keeps it running
+    creates the game and keeps it running.
     """
 
     gui = GUI()
