@@ -7,8 +7,16 @@ class GUI:
         """
         Initializes the GUI, creates the window for the game
         """
+
+        # self.game = Game()
+        # self.root = tk.Tk()  # Create the root window where all widgets go
+        # self.root.minsize(width=500, height=300)  # Sets the window's minimum size
+        # self.root.maxsize(width=500, height=300)  # Sets the window's maximum size
+        # self.root.title(windowtext)
+        # # self.screen = screen
+
         self.screen = pygame.display.set_mode((width, height))
-        pygame.display.set_caption("StarFLARE Dodge")  # Set window title
+        pygame.display.set_caption("StarFLARE Dodge")
         self.width = width
         self.height = height
 
@@ -19,55 +27,16 @@ class GUI:
         draws a button on the window, and checks if the button was clicked or not
         """
 
+        button =
 
-class Game:
-    def __init__(self, windowtext="Exploring Tkinter"):
+
+
+    def off_screen(self):
         """
-        Initializes the game, which also includes the two other classes
-        """
-
-        self.root = tk.Tk()
-        self.root.minsize(width=500, height=300)
-        self.root.maxsize(width=500, height=300)
-        self.root.title(windowtext)
-
-        self.width = 600
-        self.height = 600
-        self.rocket_width = 200
-        self.rocket_height = 200
-        self.falling_balls_radius = 10
-        self.PURPLE = (128, 0, 128)
-        self.BROWN = (165, 42, 42)
-        self.GREEN = (0, 255, 0)
-
-
-
-    def spawn_ball(self):
-        """
-        spawns a new ball randomly at the top of the screen
+        checks if dodgeballs are off the screen
+        :return:
         """
 
-
-
-
-
-    def check_collision(self):
-        """
-        checks for collision between the falling balls and the rocket
-        """
-
-    def draw_objects(self):
-        """
-        draws the objects on the screen this includes all the random balls, the score, and the rocket
-        """
-
-
-
-
-    def main_loop(self):
-        """
-        the main loop that runs the game
-        """
 
 
 
@@ -81,22 +50,83 @@ class Game:
 
 
 
+class Game:
+    def __init__(self, windowtext="Exploring Tkinter"):
+        """
+        Initializes the game
+        """
+
+        #self.ball = Dodgeball()
+        self.balls = []
+        self.player = player()
+        self.score = 0
+        self.running = True
+
+
+    def spawn_ball(self):
+        """
+        spawns a new ball randomly at the top of the screen
+        """
+        x_position = random.randint(0, 300)   #spawns balls randomly on top of the screen
+        self.balls.append(Dodgeball(x_position, 0))
+
+
+    def check_collision(self):
+        """
+        checks for collision between the falling balls and the rocket
+        """
+
+        for ball in self.balls:
+            if
+
+
+    def draw_objects(self):
+        """
+        draws the objects on the screen this includes all the random balls, the score, and the rocket
+        """
+        self.screen.fill((0, 0, 0)) #this sets the screen to black
+        for ball in self.balls:
+            ball.draw(self.screen)
+        self.player.draw_rocket(self.screen)
+
+        #for displaying the screen
+
+
+
+
+
+    def main_loop(self):
+        """
+        the main loop that runs the game
+        """
+
+        while self.running:
+            self.clock.tick(100)  # the number represents how fast the balls will fall
+            self.score += 1
+
+
+
+
     def restart(self):
         """
         restarts the game and also resets the clock
         :return:
         """
-
-
-
+        self.score = 0
+        self.player = player(self.width, self.height)  # Reset the player
+        self.balls = []
+        self.running = True  # restart the game loop
+        self.main_loop()
 
 
 class player:
-    def __init__(self):
+    def __init__(self, width, height):
         """
         Initializes the player's (rocket)
         """
-
+        self.x = width // 2
+        self.y = height - 60
+        self.speed = 5 #rocket's speed
 
 
     def left_right(self):
@@ -107,11 +137,14 @@ class player:
 
 
 
+
     def draw_rocket(self):
         """
         draws the rocket on the screen
         :return:
         """
+
+        pygame.draw.rect()
 
 
 
@@ -121,6 +154,9 @@ class Dodgeball:
         Initializes the random falling balls
         """
 
+        self.x = random.randint(0, 300)
+        self.speed = 5
+        self.size = 15
 
 
 
@@ -131,20 +167,13 @@ class Dodgeball:
         """
 
 
-    def draw_dodgeballs(self):
+
+    def draw(self):
         """
         draws the dodgeballs on the screen
         :return:
         """
 
-
-
-
-    def off_screen(self):
-        """
-        checks if dodgeballs are off the screen
-        :return:
-        """
 
 
 
@@ -154,9 +183,11 @@ def main():
     creates the game and keeps it running
     """
 
-
-
-
+    gui = GUI()
+    gui.game
+    gui.game_over
+    gui.button
+    gui.off_screen
 
 
 if __name__ == "__main__":
