@@ -29,6 +29,7 @@ class Game:
         self.spawn_timer = 0  # Timer to spawn enemies
         self.score = 0  # Player score
         self.health = 3  # Player health
+        self.speed_multiplier = 1.0  # Speed multiplier for difficulty progression
 
     def display_message(self, message, color="white"):
         """
@@ -37,7 +38,7 @@ class Game:
         :param message: The message to display
         :param color: The color of the text
         """
-        font = pygame.font.SysFont("ComicSansMS", 36)
+        font = pygame.font.SysFont("ComicSansMS", 48)
         text_surface = font.render(message, True, color)
         text_rect = text_surface.get_rect(center=(self.size[0] // 2, self.size[1] // 2))
         self.screen.blit(text_surface, text_rect)
@@ -49,24 +50,25 @@ class Game:
         Spawns a new enemy at a random position at the top of the screen.
         """
         x = random.randint(0, self.size[0] - 50)
-        y = random.randint(-100, -40)
-        self.enemies.append(pygame.Rect(x, y, 50, 50))
+        self.enemies.append(pygame.Rect(x, -50, 50, 50))
 
     def move_bullets(self):
         """
         Moves bullets upward and removes bullets off-screen.
         """
-        self.bullets = [bullet for bullet in self.bullets if bullet.top > 0]
-        for bullet in self.bullets:
-            bullet.move_ip(0, -7)
+        for bullet in self.bullets[:]:
+            bullet.move_ip(0, -7 * self.speed_multiplier)
+            if bullet.top <= 0:
+                self.bullets.remove(bullet)
 
     def move_enemies(self):
         """
         Moves enemies downward and removes enemies off-screen.
         """
-        self.enemies = [enemy for enemy in self.enemies if enemy.top < self.size[1]]
-        for enemy in self.enemies:
-            enemy.move_ip(0, 3)
+        for enemy in self.enemies[:]:
+            enemy.move_ip(0, 3 * self.speed_multiplier)
+            if enemy.top >= self.size[1]:
+                self.enemies.remove(enemy)
 
     def detect_collisions(self):
         """
@@ -95,6 +97,12 @@ class Game:
         self.screen.blit(score_text, (10, 10))
         self.screen.blit(health_text, (10, 50))
 
+    def increase_difficulty(self):
+        """
+        Increases the game speed multiplier based on the score.
+        """
+        self.speed_multiplier = 1.0 + (self.score // 10) * 0.1
+
     def run(self):
         """
         Main game loop.
@@ -106,9 +114,8 @@ class Game:
                     self.running = False
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:  # Fire a bullet
-                        self.bullets.append(
-                            pygame.Rect(self.player_rect.centerx - 5, self.player_rect.top, 10, 20)
-                        )
+                        bullet = pygame.Rect(self.player_rect.centerx - 5, self.player_rect.top, 10, 20)
+                        self.bullets.append(bullet)
 
             # Handle player movement
             keys = pygame.key.get_pressed()
@@ -119,7 +126,7 @@ class Game:
 
             # Spawn enemies periodically
             self.spawn_timer += 1
-            if self.spawn_timer > 50:
+            if self.spawn_timer > max(50 - self.score // 10, 20):  # Decrease spawn interval with score
                 self.spawn_enemy()
                 self.spawn_timer = 0
 
@@ -127,6 +134,7 @@ class Game:
             self.move_bullets()
             self.move_enemies()
             self.detect_collisions()
+            self.increase_difficulty()  # Adjust game speed
 
             # End game if health is zero
             if self.health <= 0:
@@ -157,3 +165,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+ 
