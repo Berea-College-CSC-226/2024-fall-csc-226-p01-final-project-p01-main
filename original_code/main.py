@@ -15,10 +15,7 @@ from lib2to3.fixes.fix_input import context
 
 from flask import Flask, render_template, request
 from user import *
-from scratch import creat_users_table
 app = Flask(__name__, template_folder='templates')
-students = students_list()
-creat_users_table()
 
 @app.route('/')
 def index():
