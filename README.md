@@ -69,7 +69,7 @@ Indicate what percentage of the project you have left to complete and how confid
   before the deadline.
 
 ```
-    I can definitely complete the project.
+    I can definitely complete the project. Some methods I can use to be successful before the deadline are to do more troubleshooting, fix the existing bugs, and improve functionality.
 ```
 
 ---
