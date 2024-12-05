@@ -16,6 +16,12 @@ Throughout this project, you have likely used outside resources. Reference all i
 and describe how you integrated the ideas or code into your program. This includes online sources, people who have 
 helped you, AI tools you've used, and any other resources that are not solely your own contribution. Update as you go.
 
+
+Dr Heggens
+ChatGPT
+Tojo
+pygame documentations
+Nauka
 ---
 
 ## Milestone 1: Setup, Planning, Design
@@ -35,7 +41,8 @@ helped you, AI tools you've used, and any other resources that are not solely yo
     README. You can do this by saving an image in the repository and linking to it. See the sample CRC card below - 
     and REPLACE it with your own:
   
-![Don't leave me in your README!](image/crc.png "Image of CRC card as an example. Upload your CRC card(s) in place of this one. ")
+![Don't leave me in your README!](image/crc.png ![img_1.png](img_1.png) ")
+
 
 ️**Branches**: This project will **require** effective use of git. 
 
@@ -70,14 +77,16 @@ What has surprised you so far? Describe your general feelings. Be honest with yo
 
 Indicate what percentage of the project you have left to complete and how confident you feel. 
 
-❗️**Completion Percentage**: `0 - 100%`
+  **Completion Percentage**: 55% done
 
-❗️**Confidence**: Describe how confident you feel about completing this project, and why. Then, describe some 
+️**Confidence**: Describe how confident you feel about completing this project, and why. Then, describe some 
   strategies you can employ to increase the likelihood that you'll be successful in completing this project 
   before the deadline.
 
 ```
-    **Replace this text with your reflection
+    At the beginning of the project, I felt confident and I set the bar a bit too high for myself. I think my confidence is decreasing as we approach the deadline because of my progress. When we do progress check in class, I feel so behind. A lot of people are above 50% before milestone 3
+    but I just now passed my 50% mark and I feel very behind compared to my classmates. To complete this project on time, instead of being stuck by myself, if I take more than a day to fix a bug and I still can't do it, I go to TA hours now. Because the deadline is approaching, I am trying to 
+    manage my time well and get the help while I still can. When I go to TA hours and they explain me codes, when I go back to my dorm, I like to go through it to make sure I actually understand. By doing this I feel like I can finish on time.
 ```
 
 ---
