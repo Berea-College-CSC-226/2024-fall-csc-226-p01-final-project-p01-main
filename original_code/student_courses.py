@@ -5,10 +5,13 @@ class StudentCourses:
     def __init__(self):
         pass
 
-from courses import retrieve_course_through_CRN
+
 from user import User
 
 import sqlite3
+
+def retrieve_course_through_CRN()
+    pass
 
 def add_course_to_student_through_CRN(student_id, crn):
     con = sqlite3.connect('registration.db')
@@ -21,3 +24,4 @@ def add_course_to_student_through_CRN(student_id, crn):
 
     con.commit()
     con.close()
+

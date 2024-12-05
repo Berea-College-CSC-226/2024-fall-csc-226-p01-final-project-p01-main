@@ -28,7 +28,6 @@ class Course:
         self.key = key
         self.name = self.retrieve_data()[0]  # Retrieves the name form the database
         self.crn = self.retrieve_data()[1] # Retrieves the crn form the database
-        self.close_connection()
 
 
     def retrieve_data(self):
@@ -40,7 +39,6 @@ class Course:
         self.cursor = con.cursor()
         self.cursor.execute("SELECT * FROM Courses WHERE id = ?", (self.key,))
         self.data = self.cursor.fetchone() # Retrieves name, crn and id
-        con.close()
         return self.data
 
     def close_connection(self):
@@ -50,51 +48,16 @@ class Course:
         """
         self.con.close()
 
-
-def creat_courses_table():
-    """
-    Creates a table to set us the database - Should be only used once duing the lifetime of project
-    :return: none
-    """
-    con = sqlite3.connect("registration.db")
-    cursor = con.cursor()
-    create_table_query = '''
-    CREATE TABLE Courses (
-        name CHAR NOT NULL,
-        CRN INTEGER NOT NULL,
-        id INTEGER PRIMARY KEY AUTOINCREMENT
-    );
-    '''
-
-    cursor.execute(create_table_query)
-    con.commit()
-
-
 def course_list():
-    """
-    Returns a list of all students
-    :return: course: a list of all students
-    """
     con = sqlite3.connect("registration.db")
     cursor = con.cursor()
     sql_query = "SELECT * FROM Courses ORDER BY id;"
     cursor.execute(sql_query)
     course = cursor.fetchall()
-    con.close()
     return course
 
 
-def delete_all():
-    """
-    Clear the table - for development purposes
-    :return:
-    """
-    con = sqlite3.connect("registration.db")
-    cursor = con.cursor()
-    delete_query = "DELETE FROM Courses"
-    cursor.execute(delete_query)
-    con.commit()
-    con.close()
+
 
 def create_course(name, crn):
     """
@@ -113,18 +76,4 @@ def create_course(name, crn):
     print(id, "in Create_course")
     course = Course(id)
     con.commit()
-    con.close()
     return course
-
-def retrieve_course_through_CRN(crn):
-    con = sqlite3.connect("registration.db")
-    cursor = con.cursor()
-
-    query = "SELECT id FROM Courses WHERE CRN = ?;"
-    cursor.execute(query, (crn,))
-    key = cursor.fetchone()
-    course = Course(key)
-    con.close()
-    return course
-
-create_course("math", 12)

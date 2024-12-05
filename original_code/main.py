@@ -11,14 +11,14 @@
 #
 #
 ####################################################
-
+from lib2to3.fixes.fix_input import context
 
 from flask import Flask, render_template, request
 from user import *
+from scratch import creat_users_table
 app = Flask(__name__, template_folder='templates')
-creat_users_table()
 students = students_list()
-
+creat_users_table()
 
 @app.route('/')
 def index():
@@ -35,23 +35,26 @@ def user_detail():
         id = request.args.get('id', type=int)
         user = User(id)
         user_data = user.retrieve_data()
+        courses = user.retrieve_courses()
         context = {
             'student': {
                 'name': user_data[0],
                 'PIN': user_data[1],
                 'id': user_data[2],
             },
-            'courses': ['math', 'english', 'french', 'history'],
+            'courses': courses,
         }
+
         return render_template("user_detail.html", context=context)
 
 
     if request.method == 'POST':
         id = request.args.get('id')
         data = request.form.get('crn')
-        print(id, data)
-        return "Data Submitted!"
-
+        context = {
+            'student_id': id
+        }
+        return  render_template("confirmation_page.html", context=context)
 
 @app.route('/add', methods=['GET', 'POST'])
 def add():
@@ -62,8 +65,6 @@ def add():
         name = request.form['name']
         pin = request.form['pin']
         # Process form data to database here
-
-        print(name, pin) # For testing; to be removed
 
         return f"Form submitted! Name: {name}, PIN: {pin}"
 
