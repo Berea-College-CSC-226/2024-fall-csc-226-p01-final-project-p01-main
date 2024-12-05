@@ -19,10 +19,14 @@ import sqlite3
 con = sqlite3.connect("project.db")
 cur = con.cursor()
 
+cur.execute('SELECT * FROM books')
+data = cur.fetchall()
+
+#ALT to lines 22/23
+# res = cur.execute("SELECT * FROM books")
+# print(res.fetchall())
 
 
-res = cur.execute("SELECT * FROM books")
-print(res.fetchall())
 
 # res2 = cur.execute("SELECT * FROM User")
 # print(res2.fetchall())
@@ -47,15 +51,15 @@ class LibraryCatalog:
         """
 
         self.books = []  # store Book objects
-        self.file_path = file_path
+        self.file_path = file_path #what is this used for in my code?????? CHECKKKK
 
-    def add_book(self, book):
-        """
-        adds a book to the catalog
-        :param book: book object to add
-        """
-
-        self.books.append(book)
+    # def add_book(self, book):
+    #     """
+    #     adds a book to the catalog
+    #     :param book: book object to add
+    #     """
+    #
+    #     self.books.append(book)
 
     def search_by_author(self, author_name):
         """
@@ -66,14 +70,14 @@ class LibraryCatalog:
 
         return [book for book in self.books if author_name.lower() in book.author.lower()]
 
-    def search_by_genre(self, genre_name):
-        """
-        searches for book by genre
-        :param genre_name: genre to search
-        :return: list of books by genre
-        """
-
-        return [book for book in self.books if genre_name.lower() in book.genre.lower()]
+    # def search_by_genre(self, genre_name):
+    #     """
+    #     searches for book by genre
+    #     :param genre_name: genre to search
+    #     :return: list of books by genre
+    #     """
+    #
+    #     return [book for book in self.books if genre_name.lower() in book.genre.lower()]
 
 
 class Book:
@@ -120,6 +124,20 @@ class LibraryApp:
         self.root.title("Library App")
         self.setup_widgets()
 
+    #use this code for next step:
+    # root = Tk()
+    # table = ttk.Treeview(root)
+    # table['columns'] = ('column1', 'column2', ...)
+    # table.column('#0', width=100, anchor=CENTER)
+    # table.heading('#0', text='ID')
+    # for col in table['columns']:
+    #     table.column(col, width=100, anchor=CENTER)
+    #     table.heading(col, text=col.title())
+    # for item in data:
+    #     table.insert('', 'end', text=item[0], values=item[1:])
+    # table.pack()
+    # root.mainloop()
+
     def setup_widgets(self):
         """
         creates basic GUI layout
@@ -127,41 +145,40 @@ class LibraryApp:
 
         tk.Label(self.root, text="Library Catalog", font=("Helvetica", 16)).pack(pady=10)
 
-        tk.Button(self.root, text="Add Book", command=self.add_book_gui).pack(pady=5)
+        #tk.Button(self.root, text="Add Book", command=self.add_book_gui).pack(pady=5)
         tk.Button(self.root, text="Search Books", command=self.search_books).pack(pady=5)
-        tk.Button(self.root, text="Recommend Book", command=self.recommend_book_gui).pack(pady=5)
         tk.Button(self.root, text="Exit", command=self.save_and_exit).pack(pady=5)
 
-    def add_book_gui(self):
-        """
-        opens a window to add a new book
-        """
-
-        add_window = tk.Toplevel(self.root)
-        add_window.title("Add a New Book")
-
-        tk.Label(add_window, text="Title").pack()
-        title_entry = tk.Entry(add_window)
-        title_entry.pack()
-
-        tk.Label(add_window, text="Author").pack()
-        author_entry = tk.Entry(add_window)
-        author_entry.pack()
-
-        tk.Label(add_window, text="Genre").pack()
-        genre_entry = tk.Entry(add_window)
-        genre_entry.pack()
-
-        def submit():
-            title = title_entry.get()
-            author = author_entry.get()
-            genre = genre_entry.get()
-            if title and author and genre:
-                book = Book(title, author, genre)
-                self.catalog.add_book(book)
-                tk.Label(add_window, text="Book added successfully!")
-
-        tk.Button(add_window, text="Add", command=submit).pack()
+    # def add_book_gui(self):
+    #     """
+    #     opens a window to add a new book
+    #     """
+    #
+    #     add_window = tk.Toplevel(self.root)
+    #     add_window.title("Add a New Book")
+    #
+    #     tk.Label(add_window, text="Title").pack()
+    #     title_entry = tk.Entry(add_window)
+    #     title_entry.pack()
+    #
+    #     tk.Label(add_window, text="Author").pack()
+    #     author_entry = tk.Entry(add_window)
+    #     author_entry.pack()
+    #
+    #     tk.Label(add_window, text="Genre").pack()
+    #     genre_entry = tk.Entry(add_window)
+    #     genre_entry.pack()
+    #
+    #     def submit():
+    #         title = title_entry.get()
+    #         author = author_entry.get()
+    #         genre = genre_entry.get()
+    #         if title and author and genre:
+    #             book = Book(title, author, genre)
+    #             self.catalog.add_book(book)
+    #             tk.Label(add_window, text="Book added successfully!")
+    #
+    #     tk.Button(add_window, text="Add", command=submit).pack()
 
     def search_books(self):
         """
@@ -174,18 +191,18 @@ class LibraryApp:
         author_entry = tk.Entry(search_window)
         author_entry.pack()
 
-        tk.Label(search_window, text="Search by Genre").pack()
-        genre_entry = tk.Entry(search_window)
-        genre_entry.pack()
+        # tk.Label(search_window, text="Search by Genre").pack()
+        # genre_entry = tk.Entry(search_window)
+        # genre_entry.pack()
 
         def perform_search():
             author = author_entry.get()
-            genre = genre_entry.get()
+            #genre = genre_entry.get()
             results = []
             if author:
                 results.extend(self.catalog.search_by_author(author))
-            if genre:
-                results.extend(self.catalog.search_by_genre(genre))
+            # if genre:
+            #     results.extend(self.catalog.search_by_genre(genre))
             self.display_books(results)
 
         tk.Button(search_window, text="Search", command=perform_search).pack()
@@ -211,13 +228,21 @@ class LibraryApp:
 
 def main():
     """
-    Creates GUI and uses button, textbox and label GUI widgets
-
-    :return: None
+    Creates library catalog and GUI application
     """
 
-    pass
+    file_path = "catalog_data.json" #NOT CURRENTLY USED YET
 
+    catalog = LibraryCatalog(file_path)
+
+    #preloaded books (for testing):
+    # catalog.add_book(Book("The Great Gatsby", "F. Scott Fitzgerald", "Fiction"))
+    # catalog.add_book(Book("1984", "George Orwell", "Dystopian"))
+    # catalog.add_book(Book("To Kill a Mockingbird", "Harper Lee", "Classic"))
+
+    #initializes and runs library app:
+    app = LibraryApp(catalog)
+    app.root.mainloop()
 
 if __name__ == "__main__":
     main()

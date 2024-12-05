@@ -69,14 +69,17 @@ What has surprised you so far? Describe your general feelings. Be honest with yo
 
 Indicate what percentage of the project you have left to complete and how confident you feel. 
 
-❗️**Completion Percentage**: `0 - 100%`
+❗️**Completion Percentage**: `70%`
 
 ❗️**Confidence**: Describe how confident you feel about completing this project, and why. Then, describe some 
   strategies you can employ to increase the likelihood that you'll be successful in completing this project 
   before the deadline.
 
 ```
-    **Replace this text with your reflection
+   I do not feel confident at all in completing this project because I feel like I am still very bad at coding and new
+   to using sqlite in order to create a database. To increase the likelihood to be more successful in completing this project
+   before the due date, I want to visit lab hours and consider spending some time educating myself further on sqlite through
+   tutorials and practice (creating separate branch!).
 ```
 
 ---
