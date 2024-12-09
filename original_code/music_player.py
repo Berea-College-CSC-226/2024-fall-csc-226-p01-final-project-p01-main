@@ -4,7 +4,7 @@ from pygame import mixer
 
 mixer.init()
 # --------------------------Path of music
-mixer.music.load("music1.mp3")
+mixer.music.load("../music/music1.mp3")
 mixer.music.set_volume(0.5)
 mixer.music.play()
 
