@@ -17,11 +17,11 @@ and describe how you integrated the ideas or code into your program. This includ
 helped you, AI tools you've used, and any other resources that are not solely your own contribution. Update as you go.
 
 
-Dr Heggens
-ChatGPT
-Tojo
-pygame documentations
-Nauka
+Dr Heggens: for overall layout, gave me ideas on how my layout should look like
+ChatGPT: used it to help fix the code for my falling ball issue. I had one ball moving horizontally while moving down, so I used chat to help me fix the code, to where multiple balls are spawned at the top and not just one ball.
+Tojo: helped me with the inits and also got my screen to work
+pygame documentations: used throughout the game, esp for drawing the objects (player and the red circles)
+Nauka: Helped me draw the falling balls on the screen and also with the random radiants (I needed the random radiants for the falling balls)
 ---
 
 ## Milestone 1: Setup, Planning, Design
@@ -93,9 +93,11 @@ Indicate what percentage of the project you have left to complete and how confid
 
 ## Milestone 4: Final Code, Presentation, Demo
 
-### ❗User Instructions
-In a paragraph, explain how to use your program. Assume the user is starting just after they hit the "Run" button 
-in PyCharm. 
+### User Instructions
+In my game, you have falling red balls (dodgeballs), and the rocket (green block). The goal is to avoid the falling red balls as long as you can. The rocket can only move left or right.
+When the user hits run, you will use the left or right keys on the laptop to move the rocket around to avoid collision between the red falling balls and the rocket. A timer is present in
+the top left corner of the screen, this is to see how long yoy lasted.
+
 
 ### ❗Errors and Constraints
 Every program has bugs or features that had to be scrapped for time. These bugs should be tracked in the issue queue. 
@@ -110,3 +112,4 @@ In three to four well-written paragraphs, address the following (at a minimum):
 - What was the hardest part of the final project?
 - What would you do differently next time, knowing what you know now?
 - (For partners) How well did you work with your partner? What made it go well? What made it challenging?
+
