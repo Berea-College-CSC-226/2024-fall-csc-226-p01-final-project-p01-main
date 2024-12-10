@@ -41,9 +41,6 @@ class App(ctk.CTk):
     def update_coefficient_label(self, value):
         self.coefficient_label.configure(text=f"Fourier Coefficients: {int(float(value))}")
 
-    def capture_and_save_photo(self):
-        self.processing_label.configure(text="Capturing photo...")
-
 def main():
     app = App()
     app.create_interface()
