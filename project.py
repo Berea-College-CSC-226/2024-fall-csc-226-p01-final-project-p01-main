@@ -13,23 +13,21 @@
 #
 ####################################################################################
 import tkinter as tk
+from tkinter import *
+from tkinter import ttk
 import sqlite3
 
-#define connection and cursor
-con = sqlite3.connect("project.db")
-cur = con.cursor()
 
-cur.execute('SELECT * FROM books')
-data = cur.fetchall()
+
+# data1 = cur.execute('SELECT * FROM books')
+# print(data1.fetchall())
 
 #ALT to lines 22/23
 # res = cur.execute("SELECT * FROM books")
 # print(res.fetchall())
 
-
-
-# res2 = cur.execute("SELECT * FROM User")
-# print(res2.fetchall())
+#res2 = cur.execute("SELECT * FROM User")
+#print(res2.fetchall())
 #
 # res3 = cur.execute("SELECT LastName FROM User")
 # print(res3.fetchall())
@@ -50,7 +48,21 @@ class LibraryCatalog:
         :file_path: file path for catalog storage
         """
 
-        self.books = []  # store Book objects
+        # define connection and cursor
+        con = sqlite3.connect("project.db")
+        cur = con.cursor()
+
+        cur.execute('SELECT * FROM books')
+        rows = cur.fetchall()
+
+        self.books = [
+            Book(title=row[0], total_pages=row[1], published_date=row[2], ISBN=row[3], author=row[4], genre=row[5])
+            for row in rows
+        ]
+
+
+
+
         self.file_path = file_path #what is this used for in my code?????? CHECKKKK
 
     # def add_book(self, book):
@@ -67,8 +79,14 @@ class LibraryCatalog:
         :param author_name: author's name to search
         :return: list of books by author
         """
+        # for book in self.books:
+        #     if book[4] == author_name:
+        #         return book
+        #     else:
+        #         return "Not Found"
 
-        return [book for book in self.books if author_name.lower() in book.author.lower()]
+        #print("Books in catalog:", [book.author for book in self.books])
+        return [book for book in self.books if book.author == author_name]
 
     # def search_by_genre(self, genre_name):
     #     """
@@ -81,9 +99,10 @@ class LibraryCatalog:
 
 
 class Book:
-    def __init__(self, title, author, genre, status="Unread"):
+
+    def __init__(self, ISBN, title, author, genre, published_date, total_pages):
         """
-        Initializes Book instance with title, author, genre, and status
+        Initializes Book instance with title, author, genre, ISBN, published_date and total_pages
 
         :param title: title of book
         :param author: author of book
@@ -92,10 +111,20 @@ class Book:
 
         """
 
+        self.ISBN = ISBN
         self.title = title
         self.author = author
         self.genre = genre
-        self.status = status
+        self.published_date = published_date
+        self.total_pages = total_pages
+
+    def get_info(self):
+        """
+        returns formatted string with book info
+        :return: string with book details
+        """
+        return self.ISBN, self.title, self.author, self.genre, self.published_date, self.total_pages
+
 
     def update_status(self, new_status):
         """
@@ -103,13 +132,6 @@ class Book:
         :param new_status: new status of book
         """
         self.status = new_status
-
-    def get_info(self):
-        """
-        returns formatted string with book info
-        :return: string with book details
-        """
-        return "'" + self.title + "' by " + self.author + " (Genre: " + self.genre + ", Status: " + self.status + ")"
 
 
 class LibraryApp:
@@ -123,6 +145,8 @@ class LibraryApp:
         self.root = tk.Tk()
         self.root.title("Library App")
         self.setup_widgets()
+        self.tree = ttk.Treeview(self.root)
+
 
     #use this code for next step:
     # root = Tk()
@@ -144,6 +168,12 @@ class LibraryApp:
         """
 
         tk.Label(self.root, text="Library Catalog", font=("Helvetica", 16)).pack(pady=10)
+
+        #create Treeview widget
+        self.tree = ttk.Treeview(self.root)
+        self.tree.pack(pady=10)
+
+        self.load_data() #FIXXXXX
 
         #tk.Button(self.root, text="Add Book", command=self.add_book_gui).pack(pady=5)
         tk.Button(self.root, text="Search Books", command=self.search_books).pack(pady=5)
@@ -180,6 +210,32 @@ class LibraryApp:
     #
     #     tk.Button(add_window, text="Add", command=submit).pack()
 
+
+    def load_data(self):
+        """
+        loads the data from sqlite database into a treeview widget
+        """
+
+        conn = sqlite3.connect("project.db")
+        cursor = conn.cursor()
+
+        #fetch data!!!!
+        cursor.execute("PRAGMA table_info(books)")
+        columns = [col[1] for col in cursor.fetchall()]
+        cursor.execute("SELECT * FROM books")
+        rows = cursor.fetchall()
+
+        self.tree['columns']=columns
+        self.tree.column('#0', width=0, stretch=tk.NO)
+
+        for col in columns:
+            self.tree.column(col, anchor=tk.CENTER, width=100)
+            self.tree.heading(col, text=col.title(), anchor=tk.CENTER)
+
+        conn.close()
+
+
+
     def search_books(self):
         """
         opens search window to find books by author genre
@@ -198,25 +254,29 @@ class LibraryApp:
         def perform_search():
             author = author_entry.get()
             #genre = genre_entry.get()
-            results = []
-            if author:
-                results.extend(self.catalog.search_by_author(author))
-            # if genre:
+            results = self.catalog.search_by_author(author)
+            # if author:
+            #     results.extend(self.catalog.search_by_author(author))
+            # # if genre:
             #     results.extend(self.catalog.search_by_genre(genre))
             self.display_books(results)
 
         tk.Button(search_window, text="Search", command=perform_search).pack()
 
-    def display_books(self, books):
+    def display_books(self, results):
         """
         displays list of books
-        :param books: list of Book objects
+        :param results: list of Book objects
         """
+
         display_window = tk.Toplevel(self.root)
         display_window.title("Search Results")
 
-        for book in books:
-            tk.Label(display_window, text=book.get_info()).pack()
+        if not results:
+            tk.Label(display_window, text="No books found.").pack()
+        else:
+            for book in results:
+                tk.Label(display_window, text=book.get_info()).pack()
 
     def save_and_exit(self):
         """
@@ -224,7 +284,6 @@ class LibraryApp:
         """
 
         self.root.quit()
-
 
 def main():
     """
@@ -243,6 +302,8 @@ def main():
     #initializes and runs library app:
     app = LibraryApp(catalog)
     app.root.mainloop()
+
+
 
 if __name__ == "__main__":
     main()
