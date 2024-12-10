@@ -56,7 +56,11 @@ Reflect on what you’ve done so far. How’s it going? Are you feeling behind/a
 What has surprised you so far? Describe your general feelings. Be honest with yourself; this section is for you, not me.
 
 ```
-    **Replace this text with your reflection
+    We had many issues implementing our idea at this point of the project. 
+    We started with the interface design using web development tools. 
+    The website was written, but we got stuck implementing JavaScript and Python together. 
+    We decided to work on the math part first and then deal with the design. 
+    Alex and I feel confident about this project and think we can finish it on time
 ```
 
 ---
@@ -65,14 +69,23 @@ What has surprised you so far? Describe your general feelings. Be honest with yo
 
 Indicate what percentage of the project you have left to complete and how confident you feel. 
 
-❗️**Completion Percentage**: `0 - 100%`
+❗️**Completion Percentage**: `80%`
 
 ❗️**Confidence**: Describe how confident you feel about completing this project, and why. Then, describe some 
   strategies you can employ to increase the likelihood that you'll be successful in completing this project 
   before the deadline.
 
 ```
-    **Replace this text with your reflection
+    We are confident that we will finish the project on time and will have some time to polish it. 
+    Instead of using web development tools, we used the Matplotlib library to visualize 
+    our reconstructed path. At the same time, we used customtkinter to create a modern-looking
+    interface for our program. Program is ready and working, but we still need to add documentation and
+    additional functions.    
+    
+    A strategy that helped us a lot is pair programming. We discovered that meeting in any study
+    place and doing programming on one laptop together allowed us to develop more effective
+    algorithms. Generally, working together was more enjoyable than writing the code alone, 
+    which also sped up the process. 
 ```
 
 ---
