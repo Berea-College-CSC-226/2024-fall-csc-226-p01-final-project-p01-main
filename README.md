@@ -18,10 +18,25 @@ helped you, AI tools you've used, and any other resources that are not solely yo
 
 
 Dr Heggens: for overall layout, gave me ideas on how my layout should look like
-ChatGPT: used it to help fix the code for my falling ball issue. I had one ball moving horizontally while moving down, so I used chat to help me fix the code, to where multiple balls are spawned at the top and not just one ball.
+-told me to change the objects into sprites, so collision can happen
+-Gave me a startup blueprint and I used T11 along with it
+
+ChatGPT: used it to help fix the code for my falling ball issue. 
+-I had one ball moving horizontally while moving down, so I used chat to help me fix the code, to where multiple balls are spawned at the top and not just one ball.
+-On line 132, pygame.SRCALPHA is used for transparency around the falling red balls
+-Using pygame.rect is easier to handle sprite positions and collisions
+-helped me display the score in the top left corner of the screen
+
 Tojo: helped me with the inits and also got my screen to work
+-helped me start the dodgeballs moving downwards
+
 pygame documentations: used throughout the game, esp for drawing the objects (player and the red circles)
+-Used it for event handler
+-helped me with this line of code: pygame.time.wait(2000), this exits the game after a second
+-helped me position the player at the bottom of the game, and also helped me spawn the player at the center everytime it spawns
+
 Nauka: Helped me draw the falling balls on the screen and also with the random radiants (I needed the random radiants for the falling balls)
+
 ---
 
 ## Milestone 1: Setup, Planning, Design
