@@ -5,9 +5,9 @@
 ❗️Exclamation Marks ❗️indicate action items; you should remove these emoji as you complete/update the items which 
   they accompany. (This means that your final README should have no ❗️in it!)
 
-❗️**Author(s)**: Your name(s) here
+❗️**Author(s)**: Kamau Clark
 
-❗️**Google Doc Link**: Your link here
+❗️**Google Doc Link**:https://docs.google.com/document/d/1Zt-8lDvgDnel3YQB62R4ndwahFe9xSVEye8kZplHGv4/edit?usp=sharing
 
 ---
 
@@ -20,11 +20,27 @@ helped you, AI tools you've used, and any other resources that are not solely yo
 
 ## Milestone 1: Setup, Planning, Design
 
-❗️**Title**: `What is the title of your project? Be creative! Replace this block of text.`
+❗️**Title**: `Fashion Demon`
 
-❗**Purpose**: `In a single sentence, describe WHAT your project will do. Replace this block of text.`
+❗**Purpose**: `A 2D sliding landscape game where players customize their characters, evade a chasing NPC, and navigate obstacles while enjoying background music. The player can jump, run, and slide to escape and protect their fashion!
+    - Customize character's fashion
+    - Evade a chasing NPC
+    - Navigate through challenging obstacles
+    - Enjoy background music
+Key Features:
+    - Player customization (clothes, shoes)
+    -  NPC chase mechanics
+    - Sliding 2D landscape
+    - Player movement (jump, run, slide)
+`
 
-❗️**Source Assignment(s)**: `List which original assignments you will base your project on? Replace this block of text.`
+❗️**Source Assignment(s)**: 
+`Reference: 
+The Legend of Tuna: Breath of Catnip,
+Class examples for player movement and collision detection,
+Homework 3: Adding audio to Python projects.
+Turtle Graphics Homework 4
+`
 
 ❗️**CRC Card(s)**:
   - Create a CRC card for each class that your project will implement.
@@ -34,7 +50,28 @@ helped you, AI tools you've used, and any other resources that are not solely yo
     README. You can do this by saving an image in the repository and linking to it. See the sample CRC card below - 
     and REPLACE it with your own:
   
-![Don't leave me in your README!](image/crc.png "Image of CRC card as an example. Upload your CRC card(s) in place of this one. ")
+!## CRC Cards
+(https://docs.google.com/document/d/1JE_3Qmytk_JGztRqkPXWACJwciPH61VCx3idIlBCVFY/edit?usp=sharing))
+### FashionItem CRC
+![FashionItem CRC](image/FashionItem_CRC.png "FashionItem CRC Card")
+
+### GameManager CRC
+![GameManager CRC](image/GameManager_CRC.png "GameManager CRC Card")
+
+### Item CRC
+![Item CRC](image/Item_CRC.png "Item CRC Card")
+
+### NPC CRC
+![NPC CRC](image/NPC_CRC.png "NPC CRC Card")
+
+### Obstacle CRC
+![Obstacle CRC](image/Obstacle_CRC.png "Obstacle CRC Card")
+
+### Player CRC
+![Player CRC](image/Player_CRC.png "Player CRC Card")
+
+### SoundManager CRC
+![SoundManager CRC](image/SoundManager_CRC.png "SoundManager CRC Card")
 
 ❗️**Branches**: This project will **require** effective use of git. 
 
@@ -43,8 +80,11 @@ branch) as they work. When you need to bring each others branches together, do s
 into your own, following the process we've discussed in previous assignments: 
 
 ```
-    Branch 1 name: _____________
-    Branch 2 name: _____________
+  Branch 1 name: Clarkk2 -
+  player-actions  
+  npc-mechanics: Develop NPC chase logic 
+  obstacle-handling 
+  ui-customization`: Create character customization interface 
 ```
 ---
 
@@ -56,11 +96,19 @@ Reflect on what you’ve done so far. How’s it going? Are you feeling behind/a
 What has surprised you so far? Describe your general feelings. Be honest with yourself; this section is for you, not me.
 
 ```
-    **Replace this text with your reflection
+    **Feelings for the beginning: I’m excited about the project but slightly worried about managing all the interactions between the classes. I plan to start small with basic player movement and build on that step by step. I’ve created some placeholder assets for testing, and the overall plan feels manageable.
+
+** /project-directory
+  - main.py
+  - player.py
+  - npc.py
+  - fashion_item.py
+  - sound_manager.py
+  - game_manager.py
+  - obstacle.py
+  - item.py
+  - test_suite.py**
 ```
-
----
-
 ## Milestone 3: Virtual Check-In
 
 Indicate what percentage of the project you have left to complete and how confident you feel. 
