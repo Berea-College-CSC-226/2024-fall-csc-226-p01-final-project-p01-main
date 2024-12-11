@@ -15,6 +15,7 @@ from lib2to3.fixes.fix_input import context
 
 from flask import Flask, render_template, request
 from user import *
+
 app = Flask(__name__, template_folder='templates')
 
 @app.route('/')
@@ -23,6 +24,7 @@ def index():
     Renders the main homepage and send it to the server
     :return:
     """
+    students = students_list()
     return render_template('index.html', students=students)
 
 
@@ -44,28 +46,19 @@ def user_detail():
 
         return render_template("user_detail.html", context=context)
 
-
     if request.method == 'POST':
+        crn = request.form['crn']
         id = request.args.get('id')
-        data = request.form.get('crn')
+        # Process form data to database here
+        user = User(id)
+        user.add_course_through_crn(crn)
+
         context = {
             'student_id': id
         }
         return  render_template("confirmation_page.html", context=context)
 
-@app.route('/add', methods=['GET', 'POST'])
-def add():
-    """Renders a form and sends it to the server"""
 
-    # Still not complete
-    if request.method == 'POST':
-        name = request.form['name']
-        pin = request.form['pin']
-        # Process form data to database here
-
-        return f"Form submitted! Name: {name}, PIN: {pin}"
-
-    return render_template('student_form.html')
 
 
 if __name__ == '__main__':

@@ -15,6 +15,9 @@
 
 import sqlite3
 
+from user import User
+
+DATABASE = "registration.db"
 
 class Course:
 
@@ -23,22 +26,23 @@ class Course:
         Creates an Object that relates to a record in the Users database.
         :param key: The key or id of the user in the database
         """
-        self.con = sqlite3.connect("registration.db")
+        self.con = sqlite3.connect(DATABASE)
         self.cursor = self.con.cursor()
         self.key = key
         self.name = self.retrieve_data()[0]  # Retrieves the name form the database
         self.crn = self.retrieve_data()[1] # Retrieves the crn form the database
-
+        self.con.close()
 
     def retrieve_data(self):
         """
         Retrieves the data from the database for the user
         :return: A Tuple of the user data from the record
         """
-        con = sqlite3.connect("registration.db")
+        con = sqlite3.connect(DATABASE)
         self.cursor = con.cursor()
         self.cursor.execute("SELECT * FROM Courses WHERE id = ?", (self.key,))
         self.data = self.cursor.fetchone() # Retrieves name, crn and id
+        con.close()
         return self.data
 
     def close_connection(self):
@@ -48,8 +52,21 @@ class Course:
         """
         self.con.close()
 
+    def retrieve_course_id_through_CRN(self, crn):
+        con = sqlite3.connect(DATABASE)
+        cur = con.cursor()
+        sql_query = "SELECT * FROM Courses WHERE id = ?"
+        cur.execute(sql_query, (crn,))
+        course = cur.fetchall()[0]
+        id = course[2]
+        user = User(id)
+        self.con.close()
+
+
+
+
 def course_list():
-    con = sqlite3.connect("registration.db")
+    con = sqlite3.connect(DATABASE)
     cursor = con.cursor()
     sql_query = "SELECT * FROM Courses ORDER BY id;"
     cursor.execute(sql_query)
@@ -66,14 +83,14 @@ def create_course(name, crn):
     :param crn: crn of the course
     :return: a Course Object
     """
-    con = sqlite3.connect("registration.db")
+    con = sqlite3.connect(DATABASE)
     cursor = con.cursor()
     add_query = "INSERT INTO Courses (name, crn) VALUES (?, ?)"
     cursor.execute(add_query, (name, crn))
     con.commit()
     cursor.execute("SELECT * FROM Courses ORDER BY id DESC LIMIT 1;")
     name, crn, id = cursor.fetchone()
-    print(id, "in Create_course")
     course = Course(id)
     con.commit()
+    con.close()
     return course

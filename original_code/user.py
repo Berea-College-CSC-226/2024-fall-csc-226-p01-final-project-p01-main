@@ -14,7 +14,10 @@
 
 
 import sqlite3
-from student_courses import retrieve_course_through_CRN
+from types import NoneType
+
+from werkzeug.exceptions import NotFound
+
 
 class User:
 
@@ -52,13 +55,13 @@ class User:
         con = sqlite3.connect("registration.db")
         cursor = con.cursor()
         sql_query = """
-        SELECT Courses.id, Users.id
+        SELECT Courses.name
         FROM Courses
         JOIN User_Courses ON Courses.id = User_Courses.course_id
         JOIN Users ON Users.id = User_Courses.user_id"""
 
         cursor.execute(sql_query)
-        course = cursor.fetchall()
+        course = cursor.fetchall()[0]
         return course
 
 
@@ -74,21 +77,23 @@ class User:
         self.con = sqlite3.connect("registration.db")
         self.cur = self.con.cursor()
 
-    def add_course_to_student_through_CRN(self, crn):
+    def add_course_through_crn(self, crn):
         """
         Adds a course to a student through CRN and the id of the student
-        :param student_id:
         :param crn:
         :return:
         """
         con = sqlite3.connect('registration.db')
         cur = con.cursor()
+        # Retrieve Course id using CRN:
+        retrieve_query = "SELECT id FROM Courses WHERE crn = ?"
 
-        course = retrieve_course_through_CRN(crn)
+        cur.execute(retrieve_query, (crn,))
+        course_id = cur.fetchone()[0]
 
-        query = "INSERT INTO StudentCourses (student_id, course_id) VALUES (?, ?);"
-        cur.execute(query, (self.id, course.id))
 
+        query = "INSERT INTO User_Courses (user_id, course_id) VALUES (?, ?);"
+        cur.execute(query, (self.key, course_id))
         con.commit()
         con.close()
 

@@ -2,7 +2,6 @@
 import sqlite3
 from courses import Course
 from user import User
-from courses import retrieve_course_through_CRN
 
 class StudentCourses:
     def __init__(self):
