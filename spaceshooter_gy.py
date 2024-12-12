@@ -21,11 +21,16 @@ class Game:
         self.bullet_surf.fill("#FFFFFF")  # White for bullets
         self.enemy_surf = pygame.Surface((50, 50))  # Placeholder enemy sprite
         self.enemy_surf.fill("#FF0000")  # Red for enemies
+        self.boss_surf = pygame.Surface((150, 100))  # Placeholder boss sprite
+        self.boss_surf.fill("#0000FF")  # Blue for boss
 
         # Initialize game objects
         self.player_rect = pygame.Rect(self.size[0] // 2, self.size[1] - 70, 50, 50)
         self.bullets = []  # Bullets fired by the player
         self.enemies = []  # Enemy ships
+        self.boss = None  # Current boss
+        self.boss_health = 0  # Boss health
+        self.boss_direction = 1  # Boss movement direction (1 = right, -1 = left)
         self.spawn_timer = 0  # Timer to spawn enemies
         self.score = 0  # Player score
         self.health = 3  # Player health
@@ -52,6 +57,13 @@ class Game:
         x = random.randint(0, self.size[0] - 50)
         self.enemies.append(pygame.Rect(x, -50, 50, 50))
 
+    def spawn_boss(self):
+        """
+        Spawns a boss at the top of the screen.
+        """
+        self.boss = pygame.Rect(self.size[0] // 2 - 75, 50, 150, 100)
+        self.boss_health = 10  # Boss requires 10 hits to be defeated
+
     def move_bullets(self):
         """
         Moves bullets upward and removes bullets off-screen.
@@ -70,9 +82,19 @@ class Game:
             if enemy.top >= self.size[1]:
                 self.enemies.remove(enemy)
 
+    def move_boss(self):
+        """
+        Moves the boss left and right at the top of the screen.
+        """
+        if self.boss:
+            self.boss.move_ip(5 * self.boss_direction, 0)
+            # Reverse direction if the boss hits screen edges
+            if self.boss.left <= 0 or self.boss.right >= self.size[0]:
+                self.boss_direction *= -1
+
     def detect_collisions(self):
         """
-        Handles collisions between bullets, enemies, and the player.
+        Handles collisions between bullets, enemies, the boss, and the player.
         """
         for bullet in self.bullets[:]:
             for enemy in self.enemies[:]:
@@ -82,20 +104,34 @@ class Game:
                     self.score += 1
                     break
 
+            if self.boss and bullet.colliderect(self.boss):
+                self.bullets.remove(bullet)
+                self.boss_health -= 1
+                if self.boss_health <= 0:
+                    self.score += 20  # Boss gives a large score boost
+                    self.boss = None  # Remove the boss
+
         for enemy in self.enemies[:]:
             if enemy.colliderect(self.player_rect):
                 self.enemies.remove(enemy)
                 self.health -= 1
 
+        if self.boss and self.boss.colliderect(self.player_rect):
+            self.health -= 1
+            self.boss = None  # Remove the boss on collision
+
     def render_hud(self):
         """
-        Renders the player's score and health on the screen.
+        Renders the player's score, health, and boss health on the screen.
         """
         font = pygame.font.SysFont(None, 36)
         score_text = font.render(f"Score: {self.score}", True, "white")
         health_text = font.render(f"Health: {self.health}", True, "white")
         self.screen.blit(score_text, (10, 10))
         self.screen.blit(health_text, (10, 50))
+        if self.boss:
+            boss_health_text = font.render(f"Boss Health: {self.boss_health}", True, "red")
+            self.screen.blit(boss_health_text, (10, 90))
 
     def increase_difficulty(self):
         """
@@ -130,9 +166,14 @@ class Game:
                 self.spawn_enemy()
                 self.spawn_timer = 0
 
+            # Spawn a boss every 20 points
+            if self.score > 0 and self.score % 20 == 0 and not self.boss:
+                self.spawn_boss()
+
             # Update game objects
             self.move_bullets()
             self.move_enemies()
+            self.move_boss()
             self.detect_collisions()
             self.increase_difficulty()  # Adjust game speed
 
@@ -149,6 +190,8 @@ class Game:
                 self.screen.blit(self.bullet_surf, bullet)
             for enemy in self.enemies:
                 self.screen.blit(self.enemy_surf, enemy)
+            if self.boss:
+                self.screen.blit(self.boss_surf, self.boss)
             self.render_hud()
 
             pygame.display.flip()
@@ -165,4 +208,3 @@ def main():
 
 if __name__ == "__main__":
     main()
- 
