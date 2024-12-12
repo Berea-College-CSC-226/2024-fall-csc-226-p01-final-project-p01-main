@@ -61,7 +61,7 @@ class User:
         JOIN Users ON Users.id = User_Courses.user_id"""
 
         cursor.execute(sql_query)
-        course = cursor.fetchall()[0]
+        course = cursor.fetchall()
         return course
 
 

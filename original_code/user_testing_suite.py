@@ -1,3 +1,17 @@
+####################################################
+# Name: Besher Kitaz
+# username: kitazb
+#
+# CSC: 226
+#
+####################################################
+#
+# testing suite for user module
+# Inspired by: https://docs.google.com/document/d/1ww0ajH0ahH8wBKCp3uY6fe_THjE8BJZ_3iYgnOO8ovg/edit?tab=t.0#heading=h.qg98s23ap4mh
+#
+#
+####################################################
+
 
 from user import *
 import sqlite3
@@ -8,6 +22,14 @@ cursor = con.cursor()
 
 
 def test_init(name, PIN):
+    """
+    initialize the database for tests
+    :param name: name of the user
+    :param PIN: PIN of the user
+    :return: name, PIN, id
+    """
+
+    # Add a row in the table to use for testing; to be deleted later in every test function
     add_query = "INSERT INTO Users (name, PIN) VALUES (?, ?)"
     cursor.execute(add_query, (name, PIN))
     cursor.execute("SELECT * FROM Users ORDER BY id DESC LIMIT 1;")
@@ -16,8 +38,14 @@ def test_init(name, PIN):
     return name, PIN, id
 
 
-def test_retrieve_data(name, crn):
-    name, crn, id = test_init( name, crn)
+def test_retrieve_data(name, pin):
+    """
+    test retrieve data function
+    :param name: name of the user
+    :param pin: pin of the user
+    :return:
+    """
+    name, crn, pin = test_init( name, pin)
     user = User(id)
     data = user.retrieve_data()
     assert user.key == id
@@ -31,6 +59,12 @@ def test_retrieve_data(name, crn):
 
 
 def test_create_user(name, pin):
+    """
+    tests the create user function
+    :param name: name of the user
+    :param pin: pin of the user
+    :return:
+    """
     user = create_student(name, pin)
     assert user.pin == pin
     assert user.name == name
@@ -48,6 +82,6 @@ test_create_user('Scott', 1112)
 test_create_user('James', 1113)
 
 
-print("All tests passed for courses")
+print("All tests passed for users")
 con.close()
 

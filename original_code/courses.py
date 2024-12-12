@@ -41,7 +41,7 @@ class Course:
         con = sqlite3.connect(DATABASE)
         self.cursor = con.cursor()
         self.cursor.execute("SELECT * FROM Courses WHERE id = ?", (self.key,))
-        self.data = self.cursor.fetchone() # Retrieves name, crn and id
+        self.data = self.cursor.fetchone() # Retrieves name, crn and id as a Tuple
         con.close()
         return self.data
 
@@ -52,16 +52,6 @@ class Course:
         """
         self.con.close()
 
-    def retrieve_course_id_through_CRN(self, crn):
-        con = sqlite3.connect(DATABASE)
-        cur = con.cursor()
-        sql_query = "SELECT * FROM Courses WHERE id = ?"
-        cur.execute(sql_query, (crn,))
-        course = cur.fetchall()[0]
-        id = course[2]
-        user = User(id)
-        self.con.close()
-
 
 
 
@@ -70,8 +60,15 @@ def course_list():
     cursor = con.cursor()
     sql_query = "SELECT * FROM Courses ORDER BY id;"
     cursor.execute(sql_query)
-    course = cursor.fetchall()
-    return course
+    courses = cursor.fetchall()
+
+    # Converts the data into objects
+    courses_list = list()
+    for course in courses:
+        course_objects = Course(course[2])
+        courses_list.append(course_objects)
+
+    return courses_list
 
 
 

@@ -11,18 +11,18 @@
 #
 #
 ####################################################
-from lib2to3.fixes.fix_input import context
 
+from flask import abort
 from flask import Flask, render_template, request
 from user import *
-
+import sqlite3
 app = Flask(__name__, template_folder='templates')
 
 @app.route('/')
 def index():
     """
     Renders the main homepage and send it to the server
-    :return:
+    :return: rendered html template
     """
     students = students_list()
     return render_template('index.html', students=students)
@@ -30,6 +30,10 @@ def index():
 
 @app.route('/user_detail', methods=['GET', 'POST'])
 def user_detail():
+    """
+    Displays the user's details
+    :return: rendered html template
+    """
     if request.method == 'GET':
         id = request.args.get('id', type=int)
         user = User(id)
@@ -43,15 +47,26 @@ def user_detail():
             },
             'courses': courses,
         }
-
         return render_template("user_detail.html", context=context)
 
     if request.method == 'POST':
+        pin = request.form['pin']
         crn = request.form['crn']
         id = request.args.get('id')
         # Process form data to database here
         user = User(id)
-        user.add_course_through_crn(crn)
+        if user.pin != pin:
+            return "Incorrect PIN. Please try again."
+
+        try:
+            user.add_course_through_crn(crn)
+
+        except TypeError:
+            abort(404)
+
+        except sqlite3.IntegrityError:
+            return "Class already added"
+
 
         context = {
             'student_id': id

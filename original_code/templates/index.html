@@ -6,22 +6,59 @@
 
     <!-- Simple Styling Here-->
     <style>
-        table td:hover {
-            color: red;
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            width: 100vw;
         }
+
+        .students {
+            border: black solid 1px;
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .row {
+            margin-top: 10px;
+        }
+
+        .row:hover {
+            background-color: aqua;
+        }
+
+        .students a {
+            color: blue;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .students a:hover {
+            color: blue;
+            font-style: normal;
+        }
+
     </style>
+
 
 </head>
 <body>
-    <table>
-        <!-- Create a table with students Information-->
-        <!--This will likely be changed later on-->
-        {% for student in students %}
-            <tr>
-                <td> <a href="{{ url_for('user_detail', id=student[2]) }}"> name: {{ student[0] }} </a>  </td>
-            </tr>
-        {% endfor %}
+    <div class="container">
 
-    </table>
+        <div class="students">
+            <h2> Students List </h2>
+            <!-- Create a list with students Information-->
+            {% for student in students %}
+                <div class="row">
+                    <a href="{{ url_for('user_detail', id=student[2]) }}"> name: {{ student[0] }} </a>
+                </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
 </body>
 </html>
