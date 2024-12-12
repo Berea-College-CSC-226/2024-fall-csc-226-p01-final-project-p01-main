@@ -8,6 +8,7 @@ class GameOfNim:
         self.balls = 15
         self.current_player = "Player 1"
         self.opponent = "Computer"
+        self.difficulty = "Easy"  # Default difficulty
         self.root = tk.Tk()
         self.root.title("Game of Nim")
         self.setup_menu()
@@ -16,11 +17,19 @@ class GameOfNim:
         """Set up the main menu."""
         self.clear_screen()
         tk.Label(self.root, text="Welcome to the Game of Nim!", font=("Arial", 16)).pack(pady=20)
-        tk.Button(self.root, text="Player vs Computer", command=self.start_player_vs_computer, width=20).pack(pady=10)
-        tk.Button(self.root, text="Player vs Player", command=self.start_player_vs_player, width=20).pack(pady=10)
+        tk.Button(self.root, text="Player vs Computer (Easy)", command=self.start_easy_mode, width=25).pack(pady=10)
+        tk.Button(self.root, text="Player vs Computer (Hard)", command=self.start_hard_mode, width=25).pack(pady=10)
+        tk.Button(self.root, text="Player vs Player", command=self.start_player_vs_player, width=25).pack(pady=10)
 
-    def start_player_vs_computer(self):
+    def start_easy_mode(self):
         self.opponent = "Computer"
+        self.difficulty = "Easy"
+        self.get_starting_balls()
+
+    def start_hard_mode(self):
+        self.opponent = "Computer"
+        self.difficulty = "Hard"
+
         self.get_starting_balls()
 
     def start_player_vs_player(self):
@@ -31,7 +40,8 @@ class GameOfNim:
         """Prompt to set starting balls."""
         self.clear_screen()
         tk.Label(self.root, text="How many balls would you like to start with (min 15)?").pack(pady=10)
-        self.starting_balls_entry = tk.Entry(self.root)
+        self.starting_balls_entry = tk.Entry(self.root, highlightthickness="2", highlightcolor="blue",
+                                             highlightbackground="black")
         self.starting_balls_entry.pack(pady=10)
         tk.Button(self.root, text="Submit", command=self.set_starting_balls).pack(pady=10)
 
@@ -50,14 +60,34 @@ class GameOfNim:
         self.clear_screen()
         self.update_game_ui()
 
+    def create_ball_display(self, parent):
+        """Create a visual display of balls."""
+        ball_frame = tk.Frame(parent)
+        ball_frame.pack(pady=10)
+
+        # Create ball circles
+        self.ball_circles = []
+        for _ in range(self.balls):
+            ball = tk.Canvas(ball_frame, width=30, height=30, bg='white', highlightthickness=0)
+            ball.create_oval(5, 5, 25, 25, fill='blue', tags='ball')
+            ball.pack(side=tk.LEFT, padx=2)
+            self.ball_circles.append(ball)
+
     def update_game_ui(self):
         """Update the interface with current game state."""
         self.clear_screen()
+
+        # Game state labels
         tk.Label(self.root, text=f"Balls Remaining: {self.balls}", font=("Arial", 16)).pack(pady=10)
         tk.Label(self.root, text=f"{self.current_player}'s Turn", font=("Arial", 14)).pack(pady=10)
 
+        # Ball display
+        self.create_ball_display(self.root)
+
+        # Input and submit
         tk.Label(self.root, text="Pick 1-4 Balls:").pack()
-        self.pick_entry = tk.Entry(self.root)
+        self.pick_entry = tk.Entry(self.root, highlightthickness="2", highlightcolor="blue",
+                                   highlightbackground="black")
         self.pick_entry.pack(pady=5)
         tk.Button(self.root, text="Submit", command=self.process_player_turn).pack(pady=10)
 
@@ -67,6 +97,12 @@ class GameOfNim:
             player_balls = int(self.pick_entry.get())
             if player_balls < 1 or player_balls > 4 or player_balls > self.balls:
                 raise ValueError
+
+            # Remove balls from visual display
+            for _ in range(player_balls):
+                if self.ball_circles:
+                    self.ball_circles.pop().destroy()
+
             self.balls -= player_balls
             if self.balls == 0:
                 messagebox.showinfo("Game Over", f"{self.current_player} Wins!")
@@ -78,7 +114,16 @@ class GameOfNim:
 
     def computer_turn(self):
         """Let the computer play."""
-        computer_balls = random.randint(1, min(4, self.balls))
+        if self.difficulty == "Easy":
+            computer_balls = random.randint(1, min(4, self.balls))
+        else:  # Hard difficulty
+            computer_balls = self.balls % 5 or random.randint(1, min(4, self.balls))
+
+        # Remove balls from visual display
+        for _ in range(computer_balls):
+            if self.ball_circles:
+                self.ball_circles.pop().destroy()
+
         self.balls -= computer_balls
         messagebox.showinfo("Computer's Turn", f"Computer picked {computer_balls} balls.")
         if self.balls == 0:
@@ -109,4 +154,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

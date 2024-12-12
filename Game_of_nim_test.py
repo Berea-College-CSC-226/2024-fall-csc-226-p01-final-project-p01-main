@@ -1,14 +1,23 @@
+#####################################################################
+
+# Author: DieuMerci Nshizirungu
+
+
+
+# Purpose: Unit tests for Game of Nim
+
+######################################################################
+
 from inspect import getframeinfo, stack
-from Game_of_Nim import player_turn
-from Game_of_Nim import computer_turn
-from Game_of_Nim import player_vs_player
+from Game_of_Nim import GameOfNim
+
 def unittest(did_pass):
     """
     Print the result of a unit test.
+
     :param did_pass: a boolean representing the test
     :return: None
     """
-
     caller = getframeinfo(stack()[1][0])
     linenum = caller.lineno
     if did_pass:
@@ -17,53 +26,42 @@ def unittest(did_pass):
         msg = ("Test at line {0} FAILED.".format(linenum))
     print(msg)
 
-
-def player_turn_testsuite():
+def game_of_nim_testsuite():
     """
-    The test suite function utilizes the testit() function,
-    and is designed to test the is_i_steal_pennies() function.
+    The test suite function runs unit tests for Game of Nim logic.
 
     :return: None
     """
-    print("\nRunning pennies_testsuite()).")
+    print("\nRunning game_of_nim_testsuite().")
 
-    # Remember that i_steal_pennies() returns a list in the form [num_quarters, num_dimes, num_nickels, num_pennies]
-    unittest(player_turn(10) == 6)  # because three quarters, 1 dime, and 3 pennies equals 88 cents
-    unittest(player_turn(6) == 2)
-    unittest(player_turn(5) == 3)
+    # Initialize game instance
+    game = GameOfNim()
 
-    print("Run of pennies_testsuite() complete.")
+    # Test initial state
+    unittest(game.balls == 15)
+    unittest(game.current_player == "Player 1")
 
-def computer_turn_testsuite():
-    """
-    The test suite function utilizes the testit() function,
-    and is designed to test the is_i_steal_pennies() function.
+    # Test setting starting balls
+    game.balls = 20
+    unittest(game.balls == 20)
 
-    :return: None
-    """
-    print("\nRunning computer_turn_testsuites()).")
+    # Test player turn logic
+    game.balls = 10
+    player_input = 3  # Simulate removing 3 balls
+    game.balls -= player_input
+    unittest(game.balls == 7)
 
-    # Remember that i_steal_pennies() returns a list in the form [num_quarters, num_dimes, num_nickels, num_pennies]
-    unittest(computer_turn(10) == 6)  # because three quarters, 1 dime, and 3 pennies equals 88 cents
-    unittest(computer_turn(7) == 2)
-    unittest(computer_turn(2) == 3)
+    # Test computer turn logic
+    game.balls = 7
+    computer_input = 2  # Simulate computer removing 2 balls
+    game.balls -= computer_input
+    unittest(game.balls == 5)
 
-    print("Run of computer_turn() complete.")
-
-
-
-def main():
-    """
-    This main function is intended to test the correctness of the i_steal_pennies() function
-
-    :return:
-    """
-
-    player_turn_testsuite()
-    computer_turn_testsuite()
-
+    # Test game over condition
+    game.balls = 1
+    player_input = 1  # Simulate removing the last ball
+    game.balls -= player_input
+    unittest(game.balls == 0)
 
 if __name__ == "__main__":
-    # If you run this code directly (i.e., hit the green run button on this file), it runs the test suite
-    # If you call this code from another file (e.g., t05_making_change_interactive.py), it will NOT run the test suite
-    main()
+    game_of_nim_testsuite()

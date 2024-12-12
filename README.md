@@ -86,7 +86,10 @@ Indicate what percentage of the project you have left to complete and how confid
 
 ### ❗User Instructions
 In a paragraph, explain how to use your program. Assume the user is starting just after they hit the "Run" button 
-in PyCharm. 
+in PyCharm.   
+
+
+When you first click the run button to my program you'll be directed to a 
 
 ### ❗Errors and Constraints
 Every program has bugs or features that had to be scrapped for time. These bugs should be tracked in the issue queue. 
@@ -95,9 +98,10 @@ deficiencies that remain in your code. Bugs found that aren't acknowledged in th
 
 ### ❗Reflection
 In three to four well-written paragraphs, address the following (at a minimum):
-- Why did you select the project that you did?
-- How closely did your final project reflect your initial design?
-- What did you learn from this process?
-- What was the hardest part of the final project?
-- What would you do differently next time, knowing what you know now?
+- Why did you select the project that you did? i loved coming up with logic for this game. It interested me knowing that I could turn a simple game that play face to face into a computer game. 
+- I wanted to make it visually appealing and make features that made the game simple and easy for anyone to play wether you are a beginner or are familiar with the game. 
+- How closely did your final project reflect your initial design?  My final project follows pretty well with my intial design. The only differences are that I was able to add more features to the game making it more user friendly. I didn't plan to do that in the beginning but it made more and more sense to do that as i moved forward.
+- What did you learn from this process?  
+- What was the hardest part of the final project? The hardest part of the final project for me was working with the frontend part of my game. I haven't spent a lot of time making a user interface but with the help of my TA's and friends I was able to get connected to the right resources to help me complete my project. 
+- What would you do differently next time, knowing what you know now? 
 - (For partners) How well did you work with your partner? What made it go well? What made it challenging?
