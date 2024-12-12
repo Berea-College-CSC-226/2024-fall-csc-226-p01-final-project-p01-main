@@ -4,6 +4,8 @@ import json
 import pygame
 import face_recognition as fr
 import numpy as np
+from pygame import mixer
+
 
 DEFAULT_IMAGE_FOLDER = os.path.join(os.getcwd(), "face-recognition-master")
 DATABASE_FILE = os.path.join(os.getcwd(), "face_song_mapping.json")
@@ -14,7 +16,7 @@ class ImageHandler:
         self.folder_path = folder_path
 
     def prompt_file_path(self):
-        file_name = input("Enter the image file name (e.g., obama.jpg): ")
+        file_name = input("Enter the image file name (e.g., test.jpg): ")
         file_path = os.path.join(self.folder_path, file_name)
         print(f"Using path: {file_path}")
         return file_path
@@ -151,16 +153,28 @@ class FaceSongMapping:
     def add_new_mapping(self):
         new_face = input("Enter the path to the new face image: ")
         new_song = input("Enter the path to the corresponding song: ")
-        self.database_manager.add_face_song_mapping(new_face, new_song)
+        # Assuming the key in the database is the face ID/name
+        face_id = new_face.split(".")[0]  # Extract ID from filename (modify if needed)
+        self.database_manager.add_face_song_mapping(face_id, new_song)
         print("New mapping added successfully.")
 
     def play_matching_song(self, recognized_faces):
-        for face_name in recognized_faces:
-            if face_name in self.database_manager.database:
-                print(f"Playing song for {face_name}: {self.database_manager.database[face_name]}")
-                MusicPlayer.play_song(self.database_manager.database[face_name])
+        for face_id in recognized_faces:
+            if face_id in self.database_manager.database:
+                relative_song_path = self.database_manager.database[face_id]
+
+                # Construct the absolute path to the music file
+                # Assuming the music folder is in the same directory as the database file
+                music_folder = os.path.dirname(DATABASE_FILE)
+                absolute_song_path = os.path.join(music_folder, "music", relative_song_path)
+
+                try:
+                    MusicPlayer.play_song(absolute_song_path)
+                    print(f"Playing song for {face_id}: {absolute_song_path}")
+                except Exception as e:
+                    print(f"Error playing song for {face_id}: {e}")
             else:
-                print(f"No song associated with {face_name}.")
+                print(f"No song associated with {face_id}.")
 
 
 def main():
