@@ -2,12 +2,13 @@
 # Author: Galina Pokitko
 # Username: pokitkog
 #
-# Purpose: Allow the User to explore and utilize the book database in order to search for books by author in the catalog.
+# Purpose: Allow the User to explore and search for books in the database
+# using a GUI interface.
 #
-# CHANGE THIS "A GUI widget is a graphical component such as a button, text label as shown below.
-# GUI widgets also exist to make drop-down menus and scroll bars, display images, etc...
-# Tkinter gives you the ability to create GUI Windows containing widgets.
-# This program is a simple exploration."
+# This program uses Tkinter to create a graphical user interface (GUI)
+# that allows users to search for books by author in the catalog. It
+# demonstrates the functionality of GUI widgets, including buttons, text
+# labels, and other such components.
 #######################################################################
 # Acknowledgements:
 #
@@ -304,7 +305,7 @@ def main():
 
     #preloaded books (for testing):
     # catalog.add_book(Book("The Great Gatsby", "F. Scott Fitzgerald", "Fiction"))
-    # catalog.add_book(Book("1984", "George Orwell", "Dystopian"))
+    # catalog.add_book(Book( "1984", "George Orwell", "Dystopian"))
     # catalog.add_book(Book("To Kill a Mockingbird", "Harper Lee", "Classic"))
 
     #initializes and runs library app:

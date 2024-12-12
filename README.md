@@ -12,16 +12,17 @@
 Throughout this project, you have likely used outside resources. Reference all ideas which are not your own, 
 and describe how you integrated the ideas or code into your program. This includes online sources, people who have 
 helped you, AI tools you've used, and any other resources that are not solely your own contribution. Update as you go.
-# Inspired by Goodreads: https://www.goodreads.com/
-# Book databases information: https://www.db2tutorial.com/getting-started/db2-sample-database/
-# Sqlite tutorial by Corey Schafer: https://www.youtube.com/watch?v=pd-0G0MigUA&ab_channel=CoreySchafer
-# Libraries used: https://docs.python.org/3/library/sqlite3.html#tutorial and https://docs.python.org/3/library/tkinter.html
-# Introduction to tkinter with sqlite: https://www.youtube.com/watch?v=gdDI_GhIRGo&ab_channel=CodeFirstwithHala
-# Overview of DB Browser: https://datacarpentry.github.io/sql-socialsci/02-db-browser.html
-# Retrieving sqlite data: https://stackoverflow.com/questions/63235485/python-tinker-sqlite3-retrieve-data-and-show-on-tkinter-gui
-# Importing CSV file to Sqlite DB Browser: https://www.youtube.com/watch?v=TOqI-KiTBKU&ab_channel=Anujshah
-# Borrowed some ideas from CodersLegacy for Python SQLite3 with Tkinter GUI: https://www.youtube.com/watch?v=K8RjdrkaxT0&ab_channel=CodersLegacy
-# Assisted on project by Scott Heggen
+
+Inspired by Goodreads: https://www.goodreads.com/
+Book databases information: https://www.db2tutorial.com/getting-started/db2-sample-database/
+Sqlite tutorial by Corey Schafer: https://www.youtube.com/watch?v=pd-0G0MigUA&ab_channel=CoreySchafer
+Libraries used: https://docs.python.org/3/library/sqlite3.html#tutorial and https://docs.python.org/3/library/tkinter.html
+Introduction to tkinter with sqlite: https://www.youtube.com/watch?v=gdDI_GhIRGo&ab_channel=CodeFirstwithHala
+Overview of DB Browser: https://datacarpentry.github.io/sql-socialsci/02-db-browser.html
+Retrieving sqlite data: https://stackoverflow.com/questions/63235485/python-tinker-sqlite3-retrieve-data-and-show-on-tkinter-gui
+Importing CSV file to Sqlite DB Browser: https://www.youtube.com/watch?v=TOqI-KiTBKU&ab_channel=Anujshah
+Borrowed some ideas from CodersLegacy for Python SQLite3 with Tkinter GUI: https://www.youtube.com/watch?v=K8RjdrkaxT0&ab_channel=CodersLegacy
+Assisted on project by Scott Heggen
 ---
 
 ## Milestone 1: Setup, Planning, Design
@@ -44,11 +45,7 @@ helped you, AI tools you've used, and any other resources that are not solely yo
 
 
 
-❗️**Branches**: This project will **require** effective use of git. 
-
-Each partner should create a branch at the beginning of the project, and stay on this branch (or branches of their 
-branch) as they work. When you need to bring each others branches together, do so by merging each other's branches 
-into your own, following the process we've discussed in previous assignments: 
+**Branches**: 
 
 ```
     Branch 1 name: pokitkog
@@ -75,9 +72,9 @@ What has surprised you so far? Describe your general feelings. Be honest with yo
 
 Indicate what percentage of the project you have left to complete and how confident you feel. 
 
-❗️**Completion Percentage**: `70%`
+**Completion Percentage**: `70%`
 
-❗️**Confidence**: Describe how confident you feel about completing this project, and why. Then, describe some 
+**Confidence**: Describe how confident you feel about completing this project, and why. Then, describe some 
   strategies you can employ to increase the likelihood that you'll be successful in completing this project 
   before the deadline.
 
@@ -96,6 +93,7 @@ Indicate what percentage of the project you have left to complete and how confid
 In a paragraph, explain how to use your program. Assume the user is starting just after they hit the "Run" button 
 in PyCharm. 
 
+After running my following program in Pycharm,
 
 
 ### ❗Errors and Constraints
