@@ -1,5 +1,6 @@
 import pygame
 import random
+import time
 
 class Game:
     def __init__(self):
@@ -35,6 +36,9 @@ class Game:
         self.score = 0  # Player score
         self.health = 3  # Player health
         self.speed_multiplier = 1.0  # Speed multiplier for difficulty progression
+        self.time_limit = 120  # Time limit in seconds (2 minutes)
+        self.start_time = time.time()
+        self.score_goal = 50  # Points required to win the game
 
     def display_message(self, message, color="white"):
         """
@@ -122,16 +126,21 @@ class Game:
 
     def render_hud(self):
         """
-        Renders the player's score, health, and boss health on the screen.
+        Renders the player's score, health, boss health, and remaining time on the screen.
         """
         font = pygame.font.SysFont(None, 36)
         score_text = font.render(f"Score: {self.score}", True, "white")
         health_text = font.render(f"Health: {self.health}", True, "white")
+        time_remaining = max(0, self.time_limit - int(time.time() - self.start_time))
+        timer_text = font.render(f"Time Left: {time_remaining}s", True, "white")
+        goal_text = font.render(f"Goal: {self.score}/{self.score_goal}", True, "white")
         self.screen.blit(score_text, (10, 10))
         self.screen.blit(health_text, (10, 50))
+        self.screen.blit(timer_text, (10, 90))
+        self.screen.blit(goal_text, (10, 130))
         if self.boss:
             boss_health_text = font.render(f"Boss Health: {self.boss_health}", True, "red")
-            self.screen.blit(boss_health_text, (10, 90))
+            self.screen.blit(boss_health_text, (10, 170))
 
     def increase_difficulty(self):
         """
@@ -169,6 +178,18 @@ class Game:
             # Spawn a boss every 20 points
             if self.score > 0 and self.score % 20 == 0 and not self.boss:
                 self.spawn_boss()
+
+            # Check if player reached score goal
+            if self.score >= self.score_goal:
+                self.screen.fill(self.bg_color)
+                self.display_message(f"You Win! Final Score: {self.score}", color="green")
+                self.running = False
+
+            # Check time limit
+            if time.time() - self.start_time >= self.time_limit:
+                self.screen.fill(self.bg_color)
+                self.display_message(f"Time's Up! Final Score: {self.score}", color="yellow")
+                self.running = False
 
             # Update game objects
             self.move_bullets()
