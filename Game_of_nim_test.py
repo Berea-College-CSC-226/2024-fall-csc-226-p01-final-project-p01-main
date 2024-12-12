@@ -1,12 +1,20 @@
-#####################################################################
-
-# Author: DieuMerci Nshizirungu
-
-
-
-# Purpose: Unit tests for Game of Nim
-
 ######################################################################
+# Author: DieuMerci Nshizirungu
+# Username: nshizirungud
+#
+#
+#
+# Purpose: Test suite for the game of nim
+#
+#
+#
+######################################################################
+# Acknowledgements: Gagan Phuyal, Bishal, T05 take a penny leave a penny
+#
+#
+# licensed under a Creative Commons
+# Attribution-Noncommercial-Share Alike 3.0 United States License.
+####################################################################################
 
 from inspect import getframeinfo, stack
 from Game_of_Nim import GameOfNim
@@ -47,13 +55,13 @@ def game_of_nim_testsuite():
 
     # Test player turn logic
     game.balls = 10
-    player_input = 3  # Simulate removing 3 balls
+    player_input = 3  # player removing 3 balls
     game.balls -= player_input
     unittest(game.balls == 7)
 
     # Test computer turn logic
     game.balls = 7
-    computer_input = 2  # Simulate computer removing 2 balls
+    computer_input = 2  # computer taking out 2 balls
     game.balls -= computer_input
     unittest(game.balls == 5)
 

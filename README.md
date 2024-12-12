@@ -1,13 +1,12 @@
-# ❗CSC226 Final Project
+# CSC226 Final Project
 
 ## Instructions
 
-❗️Exclamation Marks ❗️indicate action items; you should remove these emoji as you complete/update the items which 
-  they accompany. (This means that your final README should have no ❗️in it!)
 
-❗️**Author(s)**: Your name(s) here
 
-❗️**Google Doc Link**: Your link here
+DieuMerci Nshizirungu
+
+https://docs.google.com/document/d/1-8zTnjI8pIydmjRPM0n_lDSMb5pY8D9fR6GfW5uaOHs/edit?usp=sharing
 
 ---
 
@@ -20,13 +19,13 @@ helped you, AI tools you've used, and any other resources that are not solely yo
 
 ## Milestone 1: Setup, Planning, Design
 
-❗️**Title**: `FinanceTrack: Your Personal Budget and Finance Manager`
+`FinanceTrack: Your Personal Budget and Finance Manager`
 
-❗**Purpose**: ` This project will help users track their income, expenses, and savings to achieve financial goals.`
+` This project will help users track their income, expenses, and savings to achieve financial goals.`
 
-❗️**Source Assignment(s)**: `chapter 2,4, W3Schools Python Guide.`
+`chapter 2,4, W3Schools Python Guide.`
 
-❗️**CRC Card(s)**:
+
   - Create a CRC card for each class that your project will implement.
   - See this link for a sample CRC card and a template to use for your own cards (you will have to make a copy to edit):
     [CRC Card Example](https://docs.google.com/document/d/1JE_3Qmytk_JGztRqkPXWACJwciPH61VCx3idIlBCVFY/edit?usp=sharing)
@@ -36,7 +35,7 @@ helped you, AI tools you've used, and any other resources that are not solely yo
   
 ![Don't leave me in your README!](image/crc.png "Image of CRC card as an example. Upload your CRC card(s) in place of this one. ")
 
-❗️**Branches**: This project will **require** effective use of git. 
+
 
 Each partner should create a branch at the beginning of the project, and stay on this branch (or branches of their 
 branch) as they work. When you need to bring each others branches together, do so by merging each other's branches 
@@ -66,9 +65,9 @@ What has surprised you so far? Describe your general feelings. Be honest with yo
 
 Indicate what percentage of the project you have left to complete and how confident you feel. 
 
-❗️**Completion Percentage**: `70 - 100%`
+ `70 - 100%`
 
-❗️**Confidence**: Describe how confident you feel about completing this project, and why. Then, describe some 
+ Describe how confident you feel about completing this project, and why. Then, describe some 
   strategies you can employ to increase the likelihood that you'll be successful in completing this project 
   before the deadline.
 
@@ -84,19 +83,19 @@ Indicate what percentage of the project you have left to complete and how confid
 
 ## Milestone 4: Final Code, Presentation, Demo
 
-### ❗User Instructions
+### User Instructions
 In a paragraph, explain how to use your program. Assume the user is starting just after they hit the "Run" button 
 in PyCharm.   
 
 
 When you first click the run button to my program you'll be directed to a 
 
-### ❗Errors and Constraints
+### Errors and Constraints
 Every program has bugs or features that had to be scrapped for time. These bugs should be tracked in the issue queue. 
 You should already have a few items in here from the prior weeks. Create a new issue for any undocumented errors and 
 deficiencies that remain in your code. Bugs found that aren't acknowledged in the queue will be penalized.
 
-### ❗Reflection
+### Reflection
 In three to four well-written paragraphs, address the following (at a minimum):
 - Why did you select the project that you did? i loved coming up with logic for this game. It interested me knowing that I could turn a simple game that play face to face into a computer game. 
 - I wanted to make it visually appealing and make features that made the game simple and easy for anyone to play wether you are a beginner or are familiar with the game. 

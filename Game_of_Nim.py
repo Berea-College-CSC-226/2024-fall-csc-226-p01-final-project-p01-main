@@ -1,3 +1,23 @@
+######################################################################
+# Author: DieuMerci Nshizirungu
+# Username: nshizirungud
+#
+#
+#
+# Purpose: A Tkinter-based interactive game of Nim allowing players to play against
+# the computer or another player with configurable game settings such as difficulty level and starting number of balls.
+#
+#
+#
+######################################################################
+# Acknowledgements: Gagan Phuyal, HW07 Game of nim,
+#
+#
+# licensed under a Creative Commons
+# Attribution-Noncommercial-Share Alike 3.0 United States License.
+####################################################################################
+
+
 import tkinter as tk
 from tkinter import messagebox
 import random
@@ -13,8 +33,7 @@ class GameOfNim:
         self.root.title("Game of Nim")
         self.setup_menu()
 
-    def setup_menu(self):
-        """Set up the main menu."""
+    def setup_menu(self):     # setting up the main menu
         self.clear_screen()
         tk.Label(self.root, text="Welcome to the Game of Nim!", font=("Arial", 16)).pack(pady=20)
         tk.Button(self.root, text="Player vs Computer (Easy)", command=self.start_easy_mode, width=25).pack(pady=10)
@@ -36,8 +55,7 @@ class GameOfNim:
         self.opponent = "Player 2"
         self.get_starting_balls()
 
-    def get_starting_balls(self):
-        """Prompt to set starting balls."""
+    def get_starting_balls(self):    # prompt for user to set the starting balls
         self.clear_screen()
         tk.Label(self.root, text="How many balls would you like to start with (min 15)?").pack(pady=10)
         self.starting_balls_entry = tk.Entry(self.root, highlightthickness="2", highlightcolor="blue",
@@ -60,8 +78,7 @@ class GameOfNim:
         self.clear_screen()
         self.update_game_ui()
 
-    def create_ball_display(self, parent):
-        """Create a visual display of balls."""
+    def create_ball_display(self, parent):      # creates the display for the balls
         ball_frame = tk.Frame(parent)
         ball_frame.pack(pady=10)
 
@@ -73,8 +90,7 @@ class GameOfNim:
             ball.pack(side=tk.LEFT, padx=2)
             self.ball_circles.append(ball)
 
-    def update_game_ui(self):
-        """Update the interface with current game state."""
+    def update_game_ui(self):          # Updates the games interface with the current state of the game
         self.clear_screen()
 
         # Game state labels
@@ -91,8 +107,7 @@ class GameOfNim:
         self.pick_entry.pack(pady=5)
         tk.Button(self.root, text="Submit", command=self.process_player_turn).pack(pady=10)
 
-    def process_player_turn(self):
-        """Process the player's turn."""
+    def process_player_turn(self):     # processes the players turn
         try:
             player_balls = int(self.pick_entry.get())
             if player_balls < 1 or player_balls > 4 or player_balls > self.balls:
@@ -112,8 +127,7 @@ class GameOfNim:
         except ValueError:
             messagebox.showerror("Error", "Pick a valid number of balls (1-4, and not more than remaining balls).")
 
-    def computer_turn(self):
-        """Let the computer play."""
+    def computer_turn(self):        # allows the computer to play
         if self.difficulty == "Easy":
             computer_balls = random.randint(1, min(4, self.balls))
         else:  # Hard difficulty
@@ -134,16 +148,14 @@ class GameOfNim:
             self.update_game_ui()
 
     def switch_turn(self):
-        """Switch turns between players."""
-        if self.current_player == "Player 1" and self.opponent == "Computer":
+        if self.current_player == "Player 1" and self.opponent == "Computer":  # switches turns between players
             self.computer_turn()
         else:
             self.current_player = "Player 2" if self.current_player == "Player 1" else "Player 1"
             self.update_game_ui()
 
     def clear_screen(self):
-        """Remove all widgets from the screen."""
-        for widget in self.root.winfo_children():
+        for widget in self.root.winfo_children():  # removes widgets from the screen
             widget.destroy()
 
 
