@@ -95,7 +95,7 @@ things for the request and response handling, along with some testing.
 
 ## Milestone 4: Final Code, Presentation, Demo
 
-
+Program description
 It is a registration system, where you select your name, as a student, to open your page, view your current
 courses (if any), and to add new courses. After you add a course through the crn (which you should find
 in the database), you should also type your PIN, which you will get from your professor. Once done and everything
