@@ -69,9 +69,6 @@ class LibraryCatalog:
             for row in rows
         ]
 
-
-
-
         self.file_path = file_path #what is this used for in my code?????? CHECKKKK
 
     # def add_book(self, book):
