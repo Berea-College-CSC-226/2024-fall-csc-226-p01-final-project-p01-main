@@ -16,7 +16,7 @@
 # MIT Licence
 ####################################################################################
 
-import customtkinter as ctk
+import customtkinter as ctk       # import customtkinter for a more modern user interface
 from tkinter import filedialog
 import fourier
 
