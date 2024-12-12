@@ -62,7 +62,10 @@ Reflect on what you’ve done so far. How’s it going? Are you feeling behind/a
 What has surprised you so far? Describe your general feelings. Be honest with yourself; this section is for you, not me.
 
 ```
-    **Replace this text with your reflection
+    I did a lot of work in the database handling, and tests. I was a little behind, but I made it up in the next
+    weeks. I am worried about the tests and how to integrate them with the database. I am hopeful that I will be 
+    able to handle the many to many relationship model in a good way, and also handle the requests and responses 
+    accordingly. 
 ```
 
 ---
