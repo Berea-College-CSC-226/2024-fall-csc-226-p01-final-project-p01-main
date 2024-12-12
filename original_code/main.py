@@ -12,62 +12,68 @@
 #
 ####################################################
 
-
+from flask import abort
 from flask import Flask, render_template, request
 from user import *
+import sqlite3
 app = Flask(__name__, template_folder='templates')
-creat_users_table()
-students = students_list()
-
 
 @app.route('/')
 def index():
     """
     Renders the main homepage and send it to the server
-    :return:
+    :return: rendered html template
     """
+    students = students_list()
     return render_template('index.html', students=students)
 
 
 @app.route('/user_detail', methods=['GET', 'POST'])
 def user_detail():
+    """
+    Displays the user's details
+    :return: rendered html template
+    """
     if request.method == 'GET':
         id = request.args.get('id', type=int)
         user = User(id)
         user_data = user.retrieve_data()
+        courses = user.retrieve_courses()
         context = {
             'student': {
                 'name': user_data[0],
                 'PIN': user_data[1],
                 'id': user_data[2],
             },
-            'courses': ['math', 'english', 'french', 'history'],
+            'courses': courses,
         }
         return render_template("user_detail.html", context=context)
 
-
     if request.method == 'POST':
-        id = request.args.get('id')
-        data = request.form.get('crn')
-        print(id, data)
-        return "Data Submitted!"
-
-
-@app.route('/add', methods=['GET', 'POST'])
-def add():
-    """Renders a form and sends it to the server"""
-
-    # Still not complete
-    if request.method == 'POST':
-        name = request.form['name']
         pin = request.form['pin']
+        crn = request.form['crn']
+        id = request.args.get('id')
         # Process form data to database here
+        user = User(id)
+        if str(user.pin) != str(pin):
+            return "Incorrect PIN. Please try again."
 
-        print(name, pin) # For testing; to be removed
+        try:
+            user.add_course_through_crn(crn)
 
-        return f"Form submitted! Name: {name}, PIN: {pin}"
+        except TypeError:
+            abort(404)
 
-    return render_template('student_form.html')
+        except sqlite3.IntegrityError:
+            return "Class already added"
+
+
+        context = {
+            'student_id': id
+        }
+        return  render_template("confirmation_page.html", context=context)
+
+
 
 
 if __name__ == '__main__':

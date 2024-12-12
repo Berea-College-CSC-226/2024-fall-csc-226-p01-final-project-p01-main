@@ -15,6 +15,9 @@
 
 import sqlite3
 
+from user import User
+
+DATABASE = "registration.db"
 
 class Course:
 
@@ -23,23 +26,22 @@ class Course:
         Creates an Object that relates to a record in the Users database.
         :param key: The key or id of the user in the database
         """
-        self.con = sqlite3.connect("registration.db")
+        self.con = sqlite3.connect(DATABASE)
         self.cursor = self.con.cursor()
         self.key = key
         self.name = self.retrieve_data()[0]  # Retrieves the name form the database
         self.crn = self.retrieve_data()[1] # Retrieves the crn form the database
-        self.close_connection()
-
+        self.con.close()
 
     def retrieve_data(self):
         """
         Retrieves the data from the database for the user
         :return: A Tuple of the user data from the record
         """
-        con = sqlite3.connect("registration.db")
+        con = sqlite3.connect(DATABASE)
         self.cursor = con.cursor()
         self.cursor.execute("SELECT * FROM Courses WHERE id = ?", (self.key,))
-        self.data = self.cursor.fetchone() # Retrieves name, crn and id
+        self.data = self.cursor.fetchone() # Retrieves name, crn and id as a Tuple
         con.close()
         return self.data
 
@@ -51,50 +53,25 @@ class Course:
         self.con.close()
 
 
-def creat_courses_table():
-    """
-    Creates a table to set us the database - Should be only used once duing the lifetime of project
-    :return: none
-    """
-    con = sqlite3.connect("registration.db")
-    cursor = con.cursor()
-    create_table_query = '''
-    CREATE TABLE Courses (
-        name CHAR NOT NULL,
-        CRN INTEGER NOT NULL,
-        id INTEGER PRIMARY KEY AUTOINCREMENT
-    );
-    '''
-
-    cursor.execute(create_table_query)
-    con.commit()
 
 
 def course_list():
-    """
-    Returns a list of all students
-    :return: course: a list of all students
-    """
-    con = sqlite3.connect("registration.db")
+    con = sqlite3.connect(DATABASE)
     cursor = con.cursor()
     sql_query = "SELECT * FROM Courses ORDER BY id;"
     cursor.execute(sql_query)
-    course = cursor.fetchall()
-    con.close()
-    return course
+    courses = cursor.fetchall()
+
+    # Converts the data into objects
+    courses_list = list()
+    for course in courses:
+        course_objects = Course(course[2])
+        courses_list.append(course_objects)
+
+    return courses_list
 
 
-def delete_all():
-    """
-    Clear the table - for development purposes
-    :return:
-    """
-    con = sqlite3.connect("registration.db")
-    cursor = con.cursor()
-    delete_query = "DELETE FROM Courses"
-    cursor.execute(delete_query)
-    con.commit()
-    con.close()
+
 
 def create_course(name, crn):
     """
@@ -103,28 +80,14 @@ def create_course(name, crn):
     :param crn: crn of the course
     :return: a Course Object
     """
-    con = sqlite3.connect("registration.db")
+    con = sqlite3.connect(DATABASE)
     cursor = con.cursor()
     add_query = "INSERT INTO Courses (name, crn) VALUES (?, ?)"
     cursor.execute(add_query, (name, crn))
     con.commit()
     cursor.execute("SELECT * FROM Courses ORDER BY id DESC LIMIT 1;")
     name, crn, id = cursor.fetchone()
-    print(id, "in Create_course")
     course = Course(id)
     con.commit()
     con.close()
     return course
-
-def retrieve_course_through_CRN(crn):
-    con = sqlite3.connect("registration.db")
-    cursor = con.cursor()
-
-    query = "SELECT id FROM Courses WHERE CRN = ?;"
-    cursor.execute(query, (crn,))
-    key = cursor.fetchone()
-    course = Course(key)
-    con.close()
-    return course
-
-create_course("math", 12)
