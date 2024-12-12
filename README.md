@@ -1,9 +1,6 @@
-# ❗CSC226 Final Project
+# CSC226 Final Project
 
 ## Instructions
-
-❗️Exclamation Marks ❗️indicate action items; you should remove these emoji as you complete/update the items which 
-  they accompany. (This means that your final README should have no ❗️in it!)
 
 **Author(s)**: Galina Pokitko
 
@@ -15,7 +12,16 @@
 Throughout this project, you have likely used outside resources. Reference all ideas which are not your own, 
 and describe how you integrated the ideas or code into your program. This includes online sources, people who have 
 helped you, AI tools you've used, and any other resources that are not solely your own contribution. Update as you go.
-
+# Inspired by Goodreads: https://www.goodreads.com/
+# Book databases information: https://www.db2tutorial.com/getting-started/db2-sample-database/
+# Sqlite tutorial by Corey Schafer: https://www.youtube.com/watch?v=pd-0G0MigUA&ab_channel=CoreySchafer
+# Libraries used: https://docs.python.org/3/library/sqlite3.html#tutorial and https://docs.python.org/3/library/tkinter.html
+# Introduction to tkinter with sqlite: https://www.youtube.com/watch?v=gdDI_GhIRGo&ab_channel=CodeFirstwithHala
+# Overview of DB Browser: https://datacarpentry.github.io/sql-socialsci/02-db-browser.html
+# Retrieving sqlite data: https://stackoverflow.com/questions/63235485/python-tinker-sqlite3-retrieve-data-and-show-on-tkinter-gui
+# Importing CSV file to Sqlite DB Browser: https://www.youtube.com/watch?v=TOqI-KiTBKU&ab_channel=Anujshah
+# Borrowed some ideas from CodersLegacy for Python SQLite3 with Tkinter GUI: https://www.youtube.com/watch?v=K8RjdrkaxT0&ab_channel=CodersLegacy
+# Assisted on project by Scott Heggen
 ---
 
 ## Milestone 1: Setup, Planning, Design
@@ -32,9 +38,9 @@ helped you, AI tools you've used, and any other resources that are not solely yo
     README. You can do this by saving an image in the repository and linking to it. See the sample CRC card below - 
     and REPLACE it with your own:
   
-![Don't leave me in your README!](LibraryCatalog_CRC_Card-c.png "LibraryCatalog")
-![Don't leave me in your README!](LibraryApp_CRC_Card-a.png "LibraryApp")
-![Don't leave me in your README!](Book_CRC_Card-b.png "Book")
+![Library Catalog](LibraryCatalog_CRC_Card-c.png "LibraryCatalog")
+![Library App](LibraryApp_CRC_Card-a.png "LibraryApp")
+![Book](Book_CRC_Card-b.png "Book")
 
 
 

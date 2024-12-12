@@ -2,22 +2,30 @@
 # Author: Galina Pokitko
 # Username: pokitkog
 #
-# Purpose: ????
+# Purpose: Allow the User to explore and utilize the book database in order to search for books by author in the catalog.
 #
 # CHANGE THIS "A GUI widget is a graphical component such as a button, text label as shown below.
 # GUI widgets also exist to make drop-down menus and scroll bars, display images, etc...
 # Tkinter gives you the ability to create GUI Windows containing widgets.
 # This program is a simple exploration."
 #######################################################################
-# Acknowledgements: ?????
+# Acknowledgements:
 #
+# Inspired by Goodreads: https://www.goodreads.com/
+# Book databases information: https://www.db2tutorial.com/getting-started/db2-sample-database/
+# Sqlite tutorial by Corey Schafer: https://www.youtube.com/watch?v=pd-0G0MigUA&ab_channel=CoreySchafer
+# Libraries used: https://docs.python.org/3/library/sqlite3.html#tutorial and https://docs.python.org/3/library/tkinter.html
+# Introduction to tkinter with sqlite: https://www.youtube.com/watch?v=gdDI_GhIRGo&ab_channel=CodeFirstwithHala
+# Overview of DB Browser: https://datacarpentry.github.io/sql-socialsci/02-db-browser.html
+# Retrieving sqlite data: https://stackoverflow.com/questions/63235485/python-tinker-sqlite3-retrieve-data-and-show-on-tkinter-gui
+# Importing CSV file to Sqlite DB Browser: https://www.youtube.com/watch?v=TOqI-KiTBKU&ab_channel=Anujshah
+# Borrowed some ideas from CodersLegacy for Python SQLite3 with Tkinter GUI: https://www.youtube.com/watch?v=K8RjdrkaxT0&ab_channel=CodersLegacy
+# Assisted on project by Scott Heggen
 ####################################################################################
 import tkinter as tk
 from tkinter import *
 from tkinter import ttk
 import sqlite3
-
-
 
 # data1 = cur.execute('SELECT * FROM books')
 # print(data1.fetchall())
