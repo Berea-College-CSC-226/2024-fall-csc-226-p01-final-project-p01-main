@@ -16,6 +16,12 @@ Throughout this project, you have likely used outside resources. Reference all i
 and describe how you integrated the ideas or code into your program. This includes online sources, people who have 
 helped you, AI tools you've used, and any other resources that are not solely your own contribution. Update as you go.
 
+https://chatgpt.com/share/6751289c-9bc0-8007-b8de-4d4a6f444842
+https://chatgpt.com/share/675abf08-0a00-8007-a85f-7f71731440e6  
+https://chatgpt.com/share/675abf31-9958-8007-b3e8-ca73e45ddd0d
+https://chatgpt.com/share/675abf44-5140-8007-8a86-09035ae0249c
+https://chatgpt.com/share/675abf59-5dc4-8007-be13-86767bc921b7
+https://www.sqlite.org/docs.html
 ---
 
 ## Milestone 1: Setup, Planning, Design
@@ -76,7 +82,7 @@ Indicate what percentage of the project you have left to complete and how confid
 
 `70%`
 
-❗️**Confidence**: Describe how confident you feel about completing this project, and why. Then, describe some 
+**Confidence**: Describe how confident you feel about completing this project, and why. Then, describe some 
   strategies you can employ to increase the likelihood that you'll be successful in completing this project 
   before the deadline.
 
@@ -89,16 +95,18 @@ things for the request and response handling, along with some testing.
 
 ## Milestone 4: Final Code, Presentation, Demo
 
-### ❗User Instructions
-In a paragraph, explain how to use your program. Assume the user is starting just after they hit the "Run" button 
-in PyCharm. 
 
-### ❗Errors and Constraints
+It is a registration system, where you select your name, as a student, to open your page, view your current
+courses (if any), and to add new courses. After you add a course through the crn (which you should find
+in the database), you should also type your PIN, which you will get from your professor. Once done and everything
+is correct, the course will be added to the database and you will receive a confirmation page.
+
+
 Every program has bugs or features that had to be scrapped for time. These bugs should be tracked in the issue queue. 
 You should already have a few items in here from the prior weeks. Create a new issue for any undocumented errors and 
 deficiencies that remain in your code. Bugs found that aren't acknowledged in the queue will be penalized.
 
-### ❗Reflection
+
 In three to four well-written paragraphs, address the following (at a minimum):
 - Why did you select the project that you did?
 - How closely did your final project reflect your initial design?
@@ -107,5 +115,13 @@ In three to four well-written paragraphs, address the following (at a minimum):
 - What would you do differently next time, knowing what you know now?
 - (For partners) How well did you work with your partner? What made it go well? What made it challenging?
 
-References here for now:
-https://chatgpt.com/share/6751289c-9bc0-8007-b8de-4d4a6f444842
+I selected this project as I was a interested in web development, and I found it a way to learn more
+about CURD operations between the request-response cycle and databases. The initial design was similar
+to the final. However, there has been a lot of changes, especially in testing methods. 
+
+As I progressed in the project, I learned many things about databases, Flask, and many-to-many relationships. It was
+definitly challenging to link the tables together, and also to test the bases without affecting the rows.
+This was the hardest part in the design. 
+
+Next time, I will start working on the connection side (Flask) before the database, to ensure that my design
+is sending and receiving the correct data so it does not affect the database badly.
