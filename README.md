@@ -81,7 +81,8 @@ Indicate what percentage of the project you have left to complete and how confid
   before the deadline.
 
 ```
-    **Replace this text with your reflection
+I feel really confident. Most of the tasks are done, and I only need to clean the code, and add a few 
+things for the request and response handling, along with some testing. 
 ```
 
 ---
