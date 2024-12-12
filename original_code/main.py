@@ -55,7 +55,7 @@ def user_detail():
         id = request.args.get('id')
         # Process form data to database here
         user = User(id)
-        if user.pin != pin:
+        if str(user.pin) != str(pin):
             return "Incorrect PIN. Please try again."
 
         try:

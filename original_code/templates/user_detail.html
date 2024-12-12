@@ -46,7 +46,7 @@
             </h2>
             <ul>
                 {% for course in context.courses %}
-                <li> {{ course }} </li>
+                <li> {{ course[0] }} </li>
                 {% endfor %}
             </ul>
         </div>
