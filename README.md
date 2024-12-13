@@ -25,15 +25,15 @@ helped you, AI tools you've used, and any other resources that are not solely yo
 
 **CRC Card(s)**:
   
-![1st Class](CRC Cards/DatabaseManager.jpg "DatabaseManager Class")
+![1st Class](CRCCards/DatabaseManager.jpg "DatabaseManager Class")
 
-![2nd Class](CRC Cards/FaceRecognition.jpg "FaceRecognition Class")
+![2nd Class](CRCCards/FaceRecognition.jpg "FaceRecognition Class")
 
-![3rd Class](CRC Cards/FaceSongMapping.jpg "FaceSongMapping Class")
+![3rd Class](CRCCards/FaceSongMapping.jpg "FaceSongMapping Class")
 
-![4th Class](CRC Cards/ImageHandler.jpg "ImageHandler Class")
+![4th Class](CRCCards/ImageHandler.jpg "ImageHandler Class")
 
-![5th Class](CRC Cards/MusicPlayer.jpg "MusicPlayer Class")
+![5th Class](CRCCards/MusicPlayer.jpg "MusicPlayer Class")
 
 **Branches**: secolimae
 
