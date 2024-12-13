@@ -1,0 +1,15 @@
+Flask~=0.12.5
+flask-appconfig
+Flask-Bootstrap
+Flask-WTF
+matplotlib~=3.9.2
+numpy~=2.0.2
+scipy
+svgpathtools~=1.6.1
+svgutils
+gunicorn
+itsdangerous==2.0.1
+Werkzeug~=0.16.1
+customtkinter~=5.2.2
+opencv-python~=4.10.0.84
+svgwrite~=1.4.3
