@@ -32,6 +32,7 @@ class App(ctk.CTk):
     def create_interface(self):
         """
         Creates a window 400x300 with an upload button, slider, and two labels.
+
         :return: none
         """
         self.title("SVG Fourier Reconstruction")                # name of the window
@@ -55,7 +56,8 @@ class App(ctk.CTk):
         """
         Called if user presses upload_button. Gets file from the user, checks if it is okay.
         Then, creates Fourier class object, which performs all the calculations and creates a plot with a new picture.
-        :return:
+
+        :return: none
         """
         file_path = filedialog.askopenfilename(filetypes=[("SVG files", "*.svg")])  # ask user to choose a svg file
 
@@ -74,8 +76,9 @@ class App(ctk.CTk):
     def update_coefficient_label(self, value):
         """
         When user changes coefficient_slider, this function updates label to the number that user chose
+
         :param value: integer that user chose on the slider
-        :return:
+        :return: none
         """
         self.coefficient_label.configure(text=f"Fourier Coefficients: {int(float(value))}")         # updates label
 
@@ -83,6 +86,7 @@ class App(ctk.CTk):
 def main():
     """
     Creates an object of the class App() and runs the interface until user closes it.
+
     :return: none
     """
     app = App()                 # create an App object
