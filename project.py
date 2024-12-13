@@ -121,7 +121,6 @@ class LibraryApp:
         self.tree.pack(pady=10)
         self.load_data()
 
-        #tk.Button(self.root, text="Add Book", command=self.add_book_gui).pack(pady=5)
         tk.Button(self.root, text="Search Books", command=self.search_books).pack(pady=5)
         tk.Button(self.root, text="Exit", command=self.root.quit).pack(pady=5)
 
