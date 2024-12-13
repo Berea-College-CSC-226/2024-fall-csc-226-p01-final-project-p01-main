@@ -22,16 +22,16 @@ def test_player_movemnt():
     """
     this test the player's movement and to see if it stays within the boundary
     """
-    player = Player(500, 500) #the set boundary
+    screen_width = 500  # Example screen width
+    screen_height = 500  # Example screen height
+    player = Player(screen_width // 2, screen_height // 2) #this will set the player in the middle
 
     #this is for the left key
-    player.rect.x = 250 #sets the player in the middle of the screen
     pygame.key.get_pressed([True, False])
     player.left_right()
     unittest(player.rect.x == 245) #checks if the player moved over 5 spaces to the left
 
     # this is for the right key
-    player.rect.x = 250  # sets the player in the middle of the screen
     pygame.key.get_pressed([True, False])
     player.left_right()
     unittest(player.rect.x == 265) #checks to see if the player moved over 10 spaces to the right
