@@ -38,7 +38,7 @@ def final_test_suite():
     """
     """
 
-    unittest(fillerfunction("BeamMeUp") == "Scottie")
-
+    unittest(BusynessManager.time_to_row(0, 11, 10) == 67)
+    unittest(BusynessManager.calculate_length(0, 11, 10, 13, 0) == 11)
 
 final_test_suite()
