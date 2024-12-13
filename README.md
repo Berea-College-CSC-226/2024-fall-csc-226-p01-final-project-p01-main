@@ -1,9 +1,9 @@
-# ❗CSC226 Final Project
+# CSC226 Final Project
 
 ## Instructions
 
-❗️Exclamation Marks ❗️indicate action items; you should remove these emoji as you complete/update the items which 
-  they accompany. (This means that your final README should have no ❗️in it!)
+Exclamation Marks ️indicate action items; you should remove these emoji as you complete/update the items which 
+  they accompany. (This means that your final README should have no ️in it!)
 
 ️**Author(s)**: Din din
 
@@ -34,6 +34,7 @@ pygame documentations: used throughout the game, esp for drawing the objects (pl
 -Used it for event handler
 -helped me with this line of code: pygame.time.wait(2000), this exits the game after a second
 -helped me position the player at the bottom of the game, and also helped me spawn the player at the center everytime it spawns
+-helped me with some of the test suites, I saw some codes on the website, but I didn't really undestand
 
 Nauka: Helped me draw the falling balls on the screen and also with the random radiants (I needed the random radiants for the falling balls)
 
@@ -114,12 +115,12 @@ When the user hits run, you will use the left or right keys on the laptop to mov
 the top left corner of the screen, this is to see how long yoy lasted.
 
 
-### ❗Errors and Constraints
+### Errors and Constraints
 Every program has bugs or features that had to be scrapped for time. These bugs should be tracked in the issue queue. 
 You should already have a few items in here from the prior weeks. Create a new issue for any undocumented errors and 
 deficiencies that remain in your code. Bugs found that aren't acknowledged in the queue will be penalized.
 
-### ❗Reflection
+### Reflection
 In three to four well-written paragraphs, address the following (at a minimum):
 - Why did you select the project that you did?
 - How closely did your final project reflect your initial design?
@@ -128,3 +129,19 @@ In three to four well-written paragraphs, address the following (at a minimum):
 - What would you do differently next time, knowing what you know now?
 - (For partners) How well did you work with your partner? What made it go well? What made it challenging?
 
+    I selected this project because it's a simple game I used to play when I was younger. The game that I made is way more simple than the game I used to play. I thought that this game would be easy enough for me to fully get the game logic behind it, but also hard enough to 
+challenge me to create a game from scratch and learn the game logics. I also chose this project because we have done similar projects in teamwork's or our homeworks, so if I got stuck, I had something to fall back on. The turnout for my project from the initial design is closer
+than it is different. I mean I didn't get to implement all the cool enhancements like the score update, restart button, and when you die it shows your final score on the screen. I have the score showing in the top right corner, but it doesn't update, it stays at 0. But overall, 
+the final outcome is just a much simpler version of my initial design. 
+    This project has taught me a lot of things. I didn't know about the pygame documentation before this project, but after starting this project, I found the pygame documentation. It has a lot of cool features for pygame, and it helped me alot during this process. I also learned 
+how difficult it is to make a simple game. The lines of code that goes in for a simple game like trying to dodge falling balls from the top. But the biggest realization that I learned from this project is how I really struggle with test suites. I made one but it doesn't even work. 
+I tried looking at previous test suites but none of them were pygame and used classes. So I tried my best and used one of the previous test suites from the bar codes assignment and attempted.
+    The hardest part of this project was the final stretch. Actually I don't know what was harder, the beginning or the end. In the beginning, I struggled a lot because I didn't know all the right functions and how to do the layout. I was confused on which method belonged in which class.
+But this problem got solved in class, when we worked on our final project in class, I was able to get feedback quick and this helped my process. I would work on the code by myself, and ask the professor to look it over to see of my structure was correct. After fixing my layout, it went smoother,
+because I now knew what needed to happen in each section. The final stretch was also really challenging for me because instead of working on one issue at a time, I would jump around and fix the easier one first. So at the end, the harder ones remained so debugging them was challenging.
+The main issue I had was the collision part. At first, I didn't have sprites, and it was harder to do the collision, but after asking the professor, he advised me to change them into sprites. After changing them into sprites, I had T11 to help me through the collision logics.
+    If I had to do this again, I would do a lot of things differently. First and foremost, I would spend more time on this project. One of my bad habits is shutting down when I am stuck. So next time instead of taking a break, I should push myself to fix the problem and then take a break. If I had
+spent more time on this project maybe I could've gotten help from either the TAs or the professor in regard to my enhancements. If I had spent more time, my test suite would've ben better and might have actually worked. I was so focused on the code, that I forgot about the test suites, so when I remembered
+it was too late to ask for help. Asking the professor how test suites would look with pygame during class time would've been a huge help, because he would be there to give me live feedback and help me understand it better. Overall, I feel like this project really did a good job on testing our knowledge. 
+I struggled a lot, but also at the sametime, I learned a lot. 
+    

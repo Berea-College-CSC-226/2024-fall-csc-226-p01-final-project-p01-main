@@ -67,17 +67,6 @@ class Game:
         score_text = font.render(f"Score: {self.score}", True, (255, 255, 255))  # Render the score text
         self.screen.blit(score_text, (10, 10))  # Display the score in the top-left corner
 
-    def restart(self):
-        """
-        restarts the game and also resets the clock
-        :return:
-        """
-        self.score = 0
-        self.balls.empty()  # Remove all the balls
-        self.all_sprites.empty()  # Remove all sprites
-        self.player = Player(self.size[0], self.size[1])  # Recreate the player sprite
-        self.all_sprites.add(self.player)
-
     def run(self):
         """
         This is the main loop of the game, this runs the game
