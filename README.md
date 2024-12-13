@@ -6,6 +6,8 @@
 
 **Google Doc Link**: https://docs.google.com/document/d/1ZK77FyNEYp8gqzuxePRUzWHmlx4yx0-cRypP0PMwDbE/edit?tab=t.0
 
+**GitHub repository**: https://github.com/Berea-College-CSC-226/p01-final-project-melnichenkaa-zhytkovd
+
 ---
 
 ## References 
