@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Submitted</title>
+    <style>
+        body>div {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div> Data Submitted! </div>
+        <div>
+            <a href="{{ url_for('user_detail', id=context.student_id) }}" method="GET"> Return to your main page </a>
+        </div>
+    </div>
+</body>
+</html>
+

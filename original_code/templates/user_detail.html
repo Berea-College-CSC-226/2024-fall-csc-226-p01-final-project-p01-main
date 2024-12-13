@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ context.student.name }} Details</title>
+
+    <!--Simple Styling here-->
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            width: 100vw;
+            flex-direction: row;
+        }
+
+        .input {
+            margin-top: 10px;
+        }
+
+        .submit-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .courses-list {
+            margin-right: 100px;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <!--display a list of registered classes-->
+    <h2> Welcome, {{ context.student.name }}!</h2>
+    <div class="container">
+        <div class="courses-list">
+            <h2>
+                Your Courses:
+            </h2>
+            <ul>
+                {% for course in context.courses %}
+                <li> {{ course[0] }} </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div>
+
+            <!--Form to add new classes-->
+            <div class="courses-form">
+                Register for Courses
+            </div>
+            <form action="" method="POST">
+                <div class="input"> <input type="text" name="crn" placeholder="Course CRN"> </div>
+                <div class="input"> <input type="text" name="pin" placeholder="your pin"> </div>
+                <div class="submit-button"> <button type="submit">Submit</button> </div>
+            </form>
+            <div>
+        </div>
+    </div>
+    </div>
+        <a href="/"> Return to main page</a>
+
+</body>
+</html>
