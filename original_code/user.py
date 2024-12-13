@@ -45,24 +45,26 @@ class User:
         self.close_connection()
         return self.data
 
-
-    def retrieve_courses(self):
+    def retrieve_courses(self, user_id):
         """
-        Retrieves a list of courses from the database
+        Retrieves a list of courses for a specific user from the database
+        :param user_id: The ID of the user
         :return: a list of courses
         """
-
         con = sqlite3.connect("registration.db")
         cursor = con.cursor()
+
         sql_query = """
         SELECT Courses.name
         FROM Courses
         JOIN User_Courses ON Courses.id = User_Courses.course_id
-        JOIN Users ON Users.id = User_Courses.user_id"""
+        JOIN Users ON Users.id = User_Courses.user_id
+        WHERE Users.id = ?
+        """
 
-        cursor.execute(sql_query)
-        course = cursor.fetchall()
-        return course
+        cursor.execute(sql_query, (user_id,))
+        courses = cursor.fetchall()
+        return courses
 
 
     def close_connection(self):

@@ -38,7 +38,7 @@ def user_detail():
         id = request.args.get('id', type=int)
         user = User(id)
         user_data = user.retrieve_data()
-        courses = user.retrieve_courses()
+        courses = user.retrieve_courses(id)
         context = {
             'student': {
                 'name': user_data[0],
@@ -47,6 +47,7 @@ def user_detail():
             },
             'courses': courses,
         }
+        print(context)
         return render_template("user_detail.html", context=context)
 
     if request.method == 'POST':
