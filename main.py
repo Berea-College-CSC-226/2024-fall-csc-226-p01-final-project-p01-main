@@ -138,7 +138,8 @@ class FaceRecognition:
                     face = fr.load_image_file(os.path.join(dirpath, f))
                     # Combines the directory path dirpath and file name f
                     # Loads the image file from the constructed path into memory.
-                    # The loaded image is typically returned as a NumPy array representing pixel data.
+                    # The loaded image is typically returned as a NumPy array representing pixel
+                    # data.
                     encoding = fr.face_encodings(face)
                     if encoding:
                         encoded[f.split(".")[0]] = encoding[0]

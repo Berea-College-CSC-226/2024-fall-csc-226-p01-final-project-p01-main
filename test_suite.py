@@ -14,22 +14,24 @@ def face_recognition_test_suite():
 
     print("\nTesting process_image_for_recognition()")
     try:
-        test_image_valid = load_image("./test_known_faces.jpg")
+        # Use the ImageHandler class to load images
+        image_handler = ImageHandler(DEFAULT_IMAGE_FOLDER)
+        test_image_valid = image_handler.load_image("./test_known_faces.jpg")
         result_valid = process_image_for_recognition(test_image_valid)
         unittest(type(result_valid) is list)
 
-        test_image_unknown = load_image("./test_unknown_faces.jpg")
+        test_image_unknown = image_handler.load_image("./test_unknown_faces.jpg")
         result_unknown = process_image_for_recognition(test_image_unknown)
         unittest("Unknown" in result_unknown)
 
         try:
-            invalid_image = load_image("./nonexistent.jpg")
+            invalid_image = image_handler.load_image("./nonexistent.jpg")
             unittest(False)
         except ValueError:
             unittest(True)
 
         try:
-            invalid_file = load_image("./invalid_file.txt")
+            invalid_file = image_handler.load_image("./invalid_file.txt")
             unittest(False)
         except ValueError:
             unittest(True)
@@ -40,12 +42,14 @@ def face_recognition_test_suite():
 
 def database_test_suite():
     print("\nTesting load_database()")
-    database = load_database()
+    # Use the DatabaseManager class to load the database
+    database_manager = DatabaseManager(DATABASE_FILE)
+    database = database_manager.load_database()
     unittest(type(database) is dict)
 
     print("\nTesting save_database() and add_face_song_mapping()")
     test_database = {}
-    add_face_song_mapping(test_database, "test_face.jpg", "test_song.mp3")
+    database_manager.add_face_song_mapping(test_database, "test_face.jpg", "test_song.mp3")
     unittest("test_face.jpg" in test_database)
     unittest(test_database["test_face.jpg"] == "test_song.mp3")
 
