@@ -1,21 +1,13 @@
 # CSC226 Final Project
 
-## Instructions
-
-Exclamation Marks ️indicate action items; you should remove these emoji as you complete/update the items which 
-  they accompany. (This means that your final README should have no ️in it!)
-
 ️**Author(s)**: Din din
 
 ️**Google Doc Link**: https://docs.google.com/document/d/1HVP6fGvnpCJ0lKVme72FM8JZB4IiN9JlbNWyp3xQ2x4/edit?usp=sharing
-
----
 
 ## References 
 Throughout this project, you have likely used outside resources. Reference all ideas which are not your own, 
 and describe how you integrated the ideas or code into your program. This includes online sources, people who have 
 helped you, AI tools you've used, and any other resources that are not solely your own contribution. Update as you go.
-
 
 Dr Heggens: for overall layout, gave me ideas on how my layout should look like
 -told me to change the objects into sprites, so collision can happen
@@ -39,7 +31,6 @@ pygame documentations: used throughout the game, esp for drawing the objects (pl
 Nauka: Helped me draw the falling balls on the screen and also with the random radiants (I needed the random radiants for the falling balls)
 
 ---
-
 ## Milestone 1: Setup, Planning, Design
 
 ️**Title**: StarFLARE survival
@@ -57,21 +48,12 @@ Nauka: Helped me draw the falling balls on the screen and also with the random r
     README. You can do this by saving an image in the repository and linking to it. See the sample CRC card below - 
     and REPLACE it with your own:
   
-![Don't leave me in your README!](image/crc.png ![img_1.png](img_1.png) ")
-
-
-️**Branches**: This project will **require** effective use of git. 
-
-Each partner should create a branch at the beginning of the project, and stay on this branch (or branches of their 
-branch) as they work. When you need to bring each others branches together, do so by merging each other's branches 
-into your own, following the process we've discussed in previous assignments: 
+![](img_1.png)(image/crc.png ![img_1.png](img_1.png) ")
 
 ```
     Branch 1 name: parn
     Branch 2 name: _____________
 ```
----
-
 ## Milestone 2: Code Setup and Issue Queue
 
 Most importantly, keep your issue queue up to date, and focus on your code. 🙃
@@ -87,11 +69,7 @@ What has surprised you so far? Describe your general feelings. Be honest with yo
     to ask proper help. But hopefully I make a lot of progress during Thanksgiving break. 
 ```
 
----
-
 ## Milestone 3: Virtual Check-In
-
-Indicate what percentage of the project you have left to complete and how confident you feel. 
 
   **Completion Percentage**: 55% done
 
@@ -105,15 +83,12 @@ Indicate what percentage of the project you have left to complete and how confid
     manage my time well and get the help while I still can. When I go to TA hours and they explain me codes, when I go back to my dorm, I like to go through it to make sure I actually understand. By doing this I feel like I can finish on time.
 ```
 
----
-
 ## Milestone 4: Final Code, Presentation, Demo
 
 ### User Instructions
 In my game, you have falling red balls (dodgeballs), and the rocket (green block). The goal is to avoid the falling red balls as long as you can. The rocket can only move left or right.
 When the user hits run, you will use the left or right keys on the laptop to move the rocket around to avoid collision between the red falling balls and the rocket. A timer is present in
-the top left corner of the screen, this is to see how long yoy lasted.
-
+the top left corner of the screen, this is to see how long you lasted. I have the score label set up in the top left corner, but it doesn't work.
 
 ### Errors and Constraints
 Every program has bugs or features that had to be scrapped for time. These bugs should be tracked in the issue queue. 

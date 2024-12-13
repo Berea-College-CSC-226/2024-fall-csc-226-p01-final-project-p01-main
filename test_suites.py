@@ -36,8 +36,6 @@ def test_player_movemnt():
     player.left_right()
     unittest(player.rect.x == 265) #checks to see if the player moved over 10 spaces to the right
 
-
-
 def test_dodgeball():
     """
     this test if new dodgeballs are created at the top of the screen randomly
@@ -45,7 +43,6 @@ def test_dodgeball():
     ball = Dodgeball()
     unittest(0 <= ball.rect.x <= 500 - ball.rect.width)  # the balls should only spawn within the screen's boundary
     unittest(0 <= ball.rect.y <= 0)  # the balls should spawn randomly at the top
-
 
 def test_ball_movement():
     """
@@ -56,7 +53,6 @@ def test_ball_movement():
     ball.move_down()  # calls the move_down function
     unittest(ball.rect.y == start_position + ball.speed)  # checks if the y postion has changed by the speed
 
-
 def test_collision():
     """
     This checks the collision between the falling dodgeballs and the player
@@ -64,7 +60,6 @@ def test_collision():
     game = Game()
     player = game.player #gets the player from the game
     ball = Dodgeball()
-
 
 if __name__ == "__main__":
     unittest()
