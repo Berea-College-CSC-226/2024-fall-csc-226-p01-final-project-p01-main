@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Courses CRNs</title>
+</head>
+<body>
+    <table>
+        {% for course in courses %}
+        <tr>
+            <td> {{ course.name }} </td>
+            <td> {{ course.crn }} </td>
+            {% endfor %}
+        </tr>
+    </table>
+    <div>
+        <a href="/"> Return to main Page </a>
+    </div>
+</body>
+</html>

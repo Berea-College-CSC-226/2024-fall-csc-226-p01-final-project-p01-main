@@ -14,6 +14,8 @@
 
 from flask import abort
 from flask import Flask, render_template, request
+
+from original_code.courses import course_list
 from user import *
 import sqlite3
 app = Flask(__name__, template_folder='templates')
@@ -75,7 +77,11 @@ def user_detail():
         return  render_template("confirmation_page.html", context=context)
 
 
-
+@app.route('/crns', methods=['GET'])
+def course_crns():
+    if request.method == 'GET':
+        courses = course_list()
+        return render_template('crn_references.html', courses=courses)
 
 if __name__ == '__main__':
     app.run(debug=True)

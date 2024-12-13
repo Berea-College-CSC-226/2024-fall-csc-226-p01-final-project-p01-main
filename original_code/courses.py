@@ -56,6 +56,10 @@ class Course:
 
 
 def course_list():
+    """
+    Returns a list of all courses
+    :return: a list of all course objects
+    """
     con = sqlite3.connect(DATABASE)
     cursor = con.cursor()
     sql_query = "SELECT * FROM Courses ORDER BY id;"
