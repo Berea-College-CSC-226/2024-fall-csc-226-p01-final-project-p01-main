@@ -19,6 +19,8 @@
 import customtkinter as ctk       # import customtkinter for a more modern user interface
 from tkinter import filedialog
 import fourier
+import cv2  # Ensure cv2 is imported
+from capture import PhotoCapture
 
 
 class App(ctk.CTk):
@@ -27,6 +29,9 @@ class App(ctk.CTk):
         Class for handling interface of our program.
         """
         super().__init__()
+        self.processing_label = None  # Initialize as None
+        self.coefficient_slider = None  # Initialize as None
+        self.create_interface()
 
 
     def create_interface(self):
@@ -50,6 +55,19 @@ class App(ctk.CTk):
 
         self.processing_label = ctk.CTkLabel(self, text="")                                                             # creates CustomTKinter label
         self.processing_label.pack()
+
+        self.capture_button = ctk.CTkButton(self, text="Capture Photo", command=self.capture_photo)
+        self.capture_button.pack(pady=20)
+
+        # Initialize PhotoCapture after creating the UI components
+        self.photo_capture = PhotoCapture(self.processing_label, self.coefficient_slider)
+
+
+    def capture_photo(self):
+        """
+        Wrapper function to call capture_and_save_photo from PhotoCapture.
+        """
+        self.photo_capture.capture_and_save_photo()
 
 
     def upload_and_process_image(self):
@@ -86,7 +104,6 @@ class App(ctk.CTk):
 def main():
     """
     Creates an object of the class App() and runs the interface until user closes it.
-
     :return: none
     """
     app = App()                 # create an App object
