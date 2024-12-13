@@ -82,11 +82,11 @@ class Fourier():
 
 def compute_fourier_coefficients(self, points, N):
         """
-        Computes fourier coefficients using fourier transform formula.
+        Computes fourier coefficients using fourier transform formula for an each
 
         :param points: points which consist of real and imaginary part
         :param N: number on the coefficient slider during the picture uploading
-        :return:
+        :return: tuple of frequency and numpy array of coefficients
         """
         N = int(N)                          # ensures that number on the coefficient slider will be an integer
         T = len(points)                     # gets the total number of points
@@ -94,18 +94,19 @@ def compute_fourier_coefficients(self, points, N):
         coefficients = []
 
         for k in n:                                                                     # begins a loop to go through each frequency
-            c = (1 / T) * np.sum(points * np.exp(-2j * np.pi * k * np.arange(T) / T))   #
+            c = (1 / T) * np.sum(points * np.exp(-2j * np.pi * k * np.arange(T) / T))   # Fourier transform formula for a frequency k
             coefficients.append(c)
         return n, np.array(coefficients)
 
 
     def reconstruct_path(self, n, coefficients, num_points):
         """
+        Takes fourier coefficients and reconstructs them into array with real and imaginary numbers
 
-        :param n:
-        :param coefficients:
-        :param num_points:
-        :return:
+        :param n: frequencies
+        :param coefficients: fourier coefficients
+        :param num_points: total number of points
+        :return: an array where real part  represents x and imaginary - y
         """
         T = num_points
         t = np.linspace(0, 1, T)
