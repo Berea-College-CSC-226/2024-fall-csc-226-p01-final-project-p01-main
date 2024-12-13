@@ -34,7 +34,7 @@ class PhotoCapture:
 
     def capture_and_save_photo(self):
         """
-        This method captures method using webcam, processes it and converts it to svg
+        This method captures photo using webcam, processes it and converts it to svg
 
         :return: none
         """
@@ -74,6 +74,7 @@ class PhotoCapture:
     def process_svg_file(self, file_path):
         """
         This method creates an object of the Fourier class, processes the given paths and plots the picture.
+
         :param: file_path is a svg file which contains paths
         :return: none
         """

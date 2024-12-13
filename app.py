@@ -75,8 +75,6 @@ class App(ctk.CTk):
         self.processing_label.update_idletasks()                            # updates label
 
 
-
-
     def upload_and_process_image(self):
         """
         Called if user presses upload_button. Gets file from the user, checks if it is okay.
