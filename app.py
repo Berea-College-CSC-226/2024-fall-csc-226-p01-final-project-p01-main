@@ -19,8 +19,8 @@
 import customtkinter as ctk       # import customtkinter for a more modern user interface
 from tkinter import filedialog
 import fourier
-import cv2  # Ensure cv2 is imported
 from capture import PhotoCapture
+
 
 
 class App(ctk.CTk):
@@ -29,9 +29,9 @@ class App(ctk.CTk):
         Class for handling interface of our program.
         """
         super().__init__()
-        self.processing_label = None  # Initialize as None
-        self.coefficient_slider = None  # Initialize as None
-        self.create_interface()
+        self.processing_label = None
+        self.coefficient_slider = None
+        self.create_interface()             # calls create interface function
 
 
     def create_interface(self):
@@ -56,18 +56,25 @@ class App(ctk.CTk):
         self.processing_label = ctk.CTkLabel(self, text="")                                                             # creates CustomTKinter label
         self.processing_label.pack()
 
-        self.capture_button = ctk.CTkButton(self, text="Capture Photo", command=self.capture_photo)
+        self.capture_button = ctk.CTkButton(self, text="Capture Photo", command=self.capture_photo)                     # creates CustomTKinter capture_button
         self.capture_button.pack(pady=20)
 
-        # Initialize PhotoCapture after creating the UI components
-        self.photo_capture = PhotoCapture(self.processing_label, self.coefficient_slider)
+        self.photo_capture = PhotoCapture(self.coefficient_slider)                                                      # creates a new object of the PhotoCapture class
 
 
     def capture_photo(self):
         """
-        Wrapper function to call capture_and_save_photo from PhotoCapture.
+        Called if user presses capture_button. Then updates label and calls capture_and_save_photo() method from the PhotoCapture class
         """
-        self.photo_capture.capture_and_save_photo()
+        self.processing_label.configure(text="Processing image...")
+        self.processing_label.update_idletasks()                            # updates label
+
+        self.photo_capture.capture_and_save_photo()                         # calls method from the PhotoCapture class to take and process the picture
+
+        self.processing_label.configure(text="")
+        self.processing_label.update_idletasks()                            # updates label
+
+
 
 
     def upload_and_process_image(self):
@@ -107,7 +114,6 @@ def main():
     :return: none
     """
     app = App()                 # create an App object
-    app.create_interface()      # create a GUI interface
     app.mainloop()              # run an infinite interface loop
 
 

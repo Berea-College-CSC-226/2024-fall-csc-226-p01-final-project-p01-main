@@ -80,7 +80,7 @@ class Fourier():
         plt.show()                                                        # shows the plot on the screen
 
 
-def compute_fourier_coefficients(self, points, N):
+    def compute_fourier_coefficients(self, points, N):
         """
         Computes fourier coefficients using fourier transform formula for an each
 
@@ -109,10 +109,10 @@ def compute_fourier_coefficients(self, points, N):
         :return: an array where real part  represents x and imaginary - y
         """
         T = num_points
-        t = np.linspace(0, 1, T)
-        reconstructed = np.zeros(T, dtype=complex)
+        t = np.linspace(0, 1, T)                    # creates an array of T intervals between 0 and 1
+        reconstructed = np.zeros(T, dtype=complex)             # creates a zero-filled array of lenght T
 
-        for k, c in zip(n, coefficients):
-            reconstructed += c * np.exp(2j * np.pi * k * t)
+        for k, c in zip(n, coefficients):                       # go through frequencies and coefficients
+            reconstructed += c * np.exp(2j * np.pi * k * t)     # reconstructs path from the fourier frequencies and complex number coefficients
 
         return reconstructed
