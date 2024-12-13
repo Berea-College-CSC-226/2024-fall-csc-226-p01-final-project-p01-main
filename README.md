@@ -89,7 +89,7 @@ Every program has bugs or features that had to be scrapped for time. These bugs 
 You should already have a few items in here from the prior weeks. Create a new issue for any undocumented errors and 
 deficiencies that remain in your code. Bugs found that aren't acknowledged in the queue will be penalized.
 
-### ❗Reflection
+### Reflection
 In three to four well-written paragraphs, address the following (at a minimum):
 - Why did you select the project that you did?
 - How closely did your final project reflect your initial design?
@@ -97,3 +97,17 @@ In three to four well-written paragraphs, address the following (at a minimum):
 - What was the hardest part of the final project?
 - What would you do differently next time, knowing what you know now?
 - (For partners) How well did you work with your partner? What made it go well? What made it challenging?
+
+I had the idea for this project after Berea removed the calendar functionality from EAB Navigate360. I quite enjoyed
+the feature, so I had the idea that I could potentially recreate the feature for myself.
+
+My final project is a lot closer to the idea I had than I thought I would reach. While it definitely hasn't reached
+the level of functionality that the original feature had, it is still very cool.
+
+The hardest part of the project were the finishing touches - going beyond basic functionality, and diving deeper into
+tkinter to learn how to more effectively make the GUI pretty. There are so many different ways I could have designed
+a calendar, and deciding between them was difficult.
+
+During this process, I learned that I always have the ability to learn to use completely new libraries to make
+something beautiful. If I had the change to redo this project, I would spend more time trying to implement a
+feature to save the calendar into a file.
