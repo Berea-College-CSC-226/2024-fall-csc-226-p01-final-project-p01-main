@@ -9,7 +9,7 @@
 #
 #
 ######################################################################
-# Acknowledgements: Gagan Phuyal, Bishal, T05 take a penny leave a penny
+# Acknowledgements: TA's Gagan Phuyal, Bishal, T05 take a penny leave a penny
 #
 #
 # licensed under a Creative Commons

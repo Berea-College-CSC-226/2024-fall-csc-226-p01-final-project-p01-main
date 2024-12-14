@@ -10,7 +10,7 @@
 #
 #
 ######################################################################
-# Acknowledgements: Gagan Phuyal, HW07 Game of nim,
+# Acknowledgements: TA's Gagan Phuyal, HW07 Game of nim
 #
 #
 # licensed under a Creative Commons

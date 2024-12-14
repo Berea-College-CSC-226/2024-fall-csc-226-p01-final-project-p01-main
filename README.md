@@ -83,24 +83,26 @@ Indicate what percentage of the project you have left to complete and how confid
 
 ## Milestone 4: Final Code, Presentation, Demo
 
-### User Instructions
+s
 In a paragraph, explain how to use your program. Assume the user is starting just after they hit the "Run" button 
 in PyCharm.   
 
 
-When you first click the run button to my program you'll be directed to a 
+When you first click the run button to my program you'll be directed to a screen with three options. The options will ask you to either play an easy mode against the computer, a hard mode against the computer or play against another person.
+When you click either game modes you will be prompted to pick how many balls they would like to start with. You can pick as many balls as you want as long as they are above 15 balls to start with. Once you have selected the starting balls youll take turns, either against the computer or 
+the player picking between 1-4 balls at a time. the objective of the game is whoever picks up the last ball wins the game. Best of luck!
 
-### Errors and Constraints
+
 Every program has bugs or features that had to be scrapped for time. These bugs should be tracked in the issue queue. 
 You should already have a few items in here from the prior weeks. Create a new issue for any undocumented errors and 
 deficiencies that remain in your code. Bugs found that aren't acknowledged in the queue will be penalized.
 
-### Reflection
+
 In three to four well-written paragraphs, address the following (at a minimum):
 - Why did you select the project that you did? i loved coming up with logic for this game. It interested me knowing that I could turn a simple game that play face to face into a computer game. 
-- I wanted to make it visually appealing and make features that made the game simple and easy for anyone to play wether you are a beginner or are familiar with the game. 
-- How closely did your final project reflect your initial design?  My final project follows pretty well with my intial design. The only differences are that I was able to add more features to the game making it more user friendly. I didn't plan to do that in the beginning but it made more and more sense to do that as i moved forward.
-- What did you learn from this process?  
+- I wanted to make it visually appealing and make features that made the game simple and easy for anyone to play weather you are a beginner or are familiar with the game. 
+- How closely did your final project reflect your initial design?  My final project follows pretty well with my initial design. The only differences are that I was able to add more features to the game making it more user friendly. I didn't plan to do that in the beginning but it made more and more sense to do that as i moved forward.
+- What did you learn from this process? I learned to ask questions and to seek help during this project. Sometimes I feel like I have to do everything on my own but realistically whenever youre working on a project youll be working with other people. I know that I won't always know everything I'm doing and I'll need to ask for help and that's ok  
 - What was the hardest part of the final project? The hardest part of the final project for me was working with the frontend part of my game. I haven't spent a lot of time making a user interface but with the help of my TA's and friends I was able to get connected to the right resources to help me complete my project. 
-- What would you do differently next time, knowing what you know now? 
+- What would you do differently next time, knowing what you know now? Next time I would take more time with the frontend development of my code. Making the UI was the most challenging part for me and I ended up going to the TAs for help developing it. While this did help I felt because i was rushing I didn't retain the knowledge of what I was doing. 
 - (For partners) How well did you work with your partner? What made it go well? What made it challenging?
